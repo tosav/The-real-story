@@ -15,7 +15,7 @@ public class EarthBut : MonoBehaviour {
     }
     void Update()
     {
-        switch (Convert.ToInt32(SceneManager.GetActiveScene().name.Replace("Level", ""))) {
+        switch (System.Int32.Parse(SceneManager.GetActiveScene().name.Replace("Level", "") )) {
             case 1:
                 if (k) {
                     i++;
