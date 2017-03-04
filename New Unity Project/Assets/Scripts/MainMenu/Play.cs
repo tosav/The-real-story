@@ -20,5 +20,8 @@ public class Play : MonoBehaviour
         Earth.GetComponent<ScrollMenu>().checkPosY = -400f;
         gamebuttons.GetComponent<ScrollMenu>().speed = 10f;
         gamebuttons.GetComponent<ScrollMenu>().checkPosY = 0;
+        // Game g = new Game();
+        LoadSave.Load();
+        print(Game.current.level);
     }
 }
