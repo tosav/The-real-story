@@ -10,9 +10,18 @@ public class EarthBut : MonoBehaviour {
     private float i = 1;
     private double z = 0;
     private int time=10;
-    void Start()
+    /*public Transform enemy;
+    private float gravitationalForce = 7;
+    private Vector3 directionOfBirdFromPlanet;
+    /*void Start()
     {
+        directionOfBirdFromPlanet = Vector3.up;
     }
+    void FixedUpdate()
+    {
+        directionOfBirdFromPlanet = (transform.position - enemy.position).normalized;
+        enemy.GetComponent<Rigidbody2D>().AddForce(directionOfBirdFromPlanet * gravitationalForce);
+    }*/
     void Update()
     {
         switch (System.Int32.Parse(SceneManager.GetActiveScene().name.Replace("Level", "") )) {

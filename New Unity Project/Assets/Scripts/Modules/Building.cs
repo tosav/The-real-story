@@ -17,16 +17,18 @@ public class Building : MonoBehaviour
     {
         building.GetComponent<Rigidbody2D>().gravityScale = 0f;
         building.GetComponent<SpriteRenderer>().sprite = buildings[i];
+        building.AddComponent<PolygonCollider2D>();
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (repeat.GetComponent<ScrollMenu>().speed != 10)
         {
-            if (collision.gameObject.CompareTag("Earth")) {
+            if (collision.gameObject.CompareTag("Planet")) {
                 fix= building.AddComponent<FixedJoint2D>();
                 fix.connectedBody = collision.gameObject.GetComponent<Rigidbody2D>();
                 fix.autoConfigureConnectedAnchor = false;
-                c.State();
+                if (c)
+                    c.State();
             }
             if (collision.gameObject.CompareTag("Building"))
             {
