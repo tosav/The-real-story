@@ -8,6 +8,7 @@ public class Controller : MonoBehaviour {
     public GameObject Building;
     public GameObject Bul;
     private GameObject[] Build;
+    public GameObject enemy;
     private int i = 0;
     private void Start()
     {
@@ -39,5 +40,9 @@ public class Controller : MonoBehaviour {
     private void OnMouseDown()
     {
         Build[i].GetComponent<Rigidbody2D>().gravityScale = 9.8f;
+    }
+    public void DestroyEnemy()
+    {
+        Destroy(enemy);
     }
 }
