@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Shop : MonoBehaviour {
     public GameObject buttons;
     public Text GameName;
-    public Image Earth;
+	public GameObject Earth;
     public GameObject gamebuttons;
 
     private void OnMouseDown()

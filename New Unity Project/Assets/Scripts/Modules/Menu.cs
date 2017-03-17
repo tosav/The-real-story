@@ -6,9 +6,17 @@ using UnityEngine.UI;
 
 public class Menu : MonoBehaviour { 
 
+	public AudioClip hit;
+	AudioSource source;
+
+	void Start()
+	{
+		source = GetComponent<AudioSource> ();
+	}
     private void OnMouseDown()
     {
         print("Menu");
-        SceneManager.LoadScene("main");
+		SceneManager.LoadScene("main");
+		source.PlayOneShot (hit);
     }
 }

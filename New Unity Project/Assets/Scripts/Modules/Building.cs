@@ -10,9 +10,11 @@ public class Building : MonoBehaviour
     public Sprite[] buildings;
     public GameObject repeat;
     public GameObject nextlevel;
-    public GameObject Boom;
+    public GameObject boom;
     public int i = 0;
-    public Controller c;
+	public Controller c;
+	private GameObject bom;
+
     void Start()
     {
         building.GetComponent<Rigidbody2D>().gravityScale = 0f;
@@ -26,27 +28,23 @@ public class Building : MonoBehaviour
             if (collision.gameObject.CompareTag("Planet")) {
                 fix= building.AddComponent<FixedJoint2D>();
                 fix.connectedBody = collision.gameObject.GetComponent<Rigidbody2D>();
-                fix.autoConfigureConnectedAnchor = false;
-                if (c)
-                    c.State();
+				fix.autoConfigureConnectedAnchor = false;
+
+				if (c)
+					c.State();
             }
             if (collision.gameObject.CompareTag("Building"))
             {
                 repeat.GetComponent<ScrollMenu>().speed = 10;
                 fix = building.AddComponent<FixedJoint2D>();
                 fix.connectedBody = collision.gameObject.GetComponent<Rigidbody2D>();
-                fix.autoConfigureConnectedAnchor = false;
-            }
-           /* if (collision.gameObject.CompareTag("Enemy"))
-            {
-                GameObject bo =Instantiate(Boom);
-                print(collision.transform.position);
-                bo.transform.position = collision.transform.position;
-                bo.transform.localScale = new Vector3(10f,10f);
-                bo.GetComponent<SpriteRenderer>().enabled=true;
-                repeat.GetComponent<ScrollMenu>().speed = 10;
-            }*/
+				fix.autoConfigureConnectedAnchor = false;
 
+				bom = Instantiate(boom);
+				bom.GetComponent<Transform>().position = transform.position;
+				bom.GetComponent<Animator>().Play(boom.GetComponent<Animator>().GetHashCode());
+
+            }
         }
 
     }
