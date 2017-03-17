@@ -5,28 +5,27 @@ using UnityEngine;
 public class Enemy_event : MonoBehaviour {
 
     public GameObject repeat;
-    // Use this for initialization
-    void Start () {
-		
-	}
+    public GameObject boom;
+    private GameObject bom;
 
-    // Update is called once per frame
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (repeat.GetComponent<ScrollMenu>().speed != 10)
-        {
-            if (collision.gameObject.CompareTag("Planet"))
-            {
-                print("earth");
-            }
-            if (collision.gameObject.CompareTag("Building"))
-            {
-                print("Building");
-            }
-            if (collision.gameObject.CompareTag("Enemy"))
-            {
-                print("Enemy");
-            }
-        }
+		if (repeat.GetComponent<ScrollMenu> ().speed != 10) {
+			bom = Instantiate (boom);
+			bom.GetComponent<Transform> ().position = transform.position;
+			bom.GetComponent<Animator> ().Play (boom.GetComponent<Animator> ().GetHashCode ()); 
+			if (collision.gameObject.CompareTag ("Planet")) {
+
+				Destroy (boom);
+				Destroy (gameObject);
+			} else {
+				Destroy (collision.gameObject);
+				Destroy (boom);
+				Destroy (gameObject);
+			}
+		} else 
+		{
+			Destroy (this);
+		}
     }
 }

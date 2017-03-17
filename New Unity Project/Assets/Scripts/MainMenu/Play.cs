@@ -6,22 +6,29 @@ using UnityEngine.UI;
 public class Play : MonoBehaviour
 {
     public GameObject buttons;
-    public Text GameName;
-    public Image Earth;
-    public GameObject gamebuttons;
+    public Text gameName;
+	public GameObject earth;
+	public GameObject gamebuttons;
+	public AudioClip hit;
+	AudioSource source;
+
+	void Start()
+	{
+		source = GetComponent<AudioSource> ();
+	}
 
     private void OnMouseDown()
     {
-        GameName.GetComponent<ScrollMenu>().speed = 10f;
-        GameName.GetComponent<ScrollMenu>().checkPosY = 130f;
+		gameName.GetComponent<ScrollMenu>().speed = 10f;
+		gameName.GetComponent<ScrollMenu>().checkPosY = 100f;
         buttons.GetComponent<ScrollMenu>().speed = -10f;
         buttons.GetComponent<ScrollMenu>().checkPosY = -200f;
-        Earth.GetComponent<ScrollMenu>().speed = -10f;
-        Earth.GetComponent<ScrollMenu>().checkPosY = -400f;
+		earth.GetComponent<ScrollMenu>().speed = -10f;
+		earth.GetComponent<ScrollMenu>().checkPosY = -400f;
         gamebuttons.GetComponent<ScrollMenu>().speed = 10f;
         gamebuttons.GetComponent<ScrollMenu>().checkPosY = 0;
         // Game g = new Game();
         LoadSave.Load();
-        print(Game.current.level);
+		source.PlayOneShot (hit);
     }
 }
