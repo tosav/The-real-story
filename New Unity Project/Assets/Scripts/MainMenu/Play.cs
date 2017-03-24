@@ -7,9 +7,10 @@ public class Play : MonoBehaviour
 {
     public GameObject buttons;
     public Text gameName;
-	public GameObject earth;
-	public GameObject gamebuttons;
+	public GameObject menubutton;
 	public AudioClip hit;
+	public GameObject light;
+	public GameObject gameLight;
 	AudioSource source;
 
 	void Start()
@@ -18,17 +19,17 @@ public class Play : MonoBehaviour
 	}
 
     private void OnMouseDown()
-    {
-		gameName.GetComponent<ScrollMenu>().speed = 10f;
-		gameName.GetComponent<ScrollMenu>().checkPosY = 100f;
-        buttons.GetComponent<ScrollMenu>().speed = -10f;
-        buttons.GetComponent<ScrollMenu>().checkPosY = -200f;
-		earth.GetComponent<ScrollMenu>().speed = -10f;
-		earth.GetComponent<ScrollMenu>().checkPosY = -400f;
-        gamebuttons.GetComponent<ScrollMenu>().speed = 10f;
-        gamebuttons.GetComponent<ScrollMenu>().checkPosY = 0;
-        // Game g = new Game();
-        LoadSave.Load();
+	{
 		source.PlayOneShot (hit);
+		gameName.GetComponent<ScrollMenu>().speedY = 10f;
+		gameName.GetComponent<ScrollMenu>().checkPosY = 100f;
+		buttons.GetComponent<ScrollMenu>().speedY = -10f;
+        buttons.GetComponent<ScrollMenu>().checkPosY = -200f;
+		menubutton.GetComponent<ScrollMenu>().speedY = 10f;
+		menubutton.GetComponent<ScrollMenu>().checkPosY = 0;
+        // Game g = new Game();
+		GameManager.instance.EnterGame ();
+		light.SetActive (false);
+		gameLight.SetActive (true);
     }
 }

@@ -11,13 +11,13 @@ public class Shop : MonoBehaviour {
 
     private void OnMouseDown()
     {
-        GameName.GetComponent<ScrollMenu>().speed = 10f;
+		GameName.GetComponent<ScrollMenu>().speedY = 10f;
         GameName.GetComponent<ScrollMenu>().checkPosY = 130f;
-        buttons.GetComponent<ScrollMenu>().speed = -10f;
+		buttons.GetComponent<ScrollMenu>().speedY = -10f;
         buttons.GetComponent<ScrollMenu>().checkPosY = -200f;
-        Earth.GetComponent<ScrollMenu>().speed = -10f;
+		Earth.GetComponent<ScrollMenu>().speedY = -10f;
         Earth.GetComponent<ScrollMenu>().checkPosY = -400f;
-        gamebuttons.GetComponent<ScrollMenu>().speed = 10f;
+		gamebuttons.GetComponent<ScrollMenu>().speedY = 10f;
         gamebuttons.GetComponent<ScrollMenu>().checkPosY = 0;
     }
 }

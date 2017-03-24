@@ -10,7 +10,7 @@ public class Enemy_event : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-		if (repeat.GetComponent<ScrollMenu> ().speed != 10) {
+		if (repeat.GetComponent<ScrollMenu> ().speedY != 10) {
 			bom = Instantiate (boom);
 			bom.GetComponent<Transform> ().position = transform.position;
 			bom.GetComponent<Animator> ().Play (boom.GetComponent<Animator> ().GetHashCode ()); 
