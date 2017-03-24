@@ -16,16 +16,16 @@ public class LoadSave : MonoBehaviour {
     }
     public static void Save()
     {
-        PlayerPrefs.SetInt("Level", Game.current.level);
+		PlayerPrefs.SetInt("Level", Game.current.Level);
     }
     public static void Load()
     {
         if (PlayerPrefs.HasKey("Level"))
-            Game.current.level = PlayerPrefs.GetInt("Level");
+			Game.current.Level=PlayerPrefs.GetInt("Level");
         else
         {
-            Game.current.level = 0;
-            PlayerPrefs.SetInt("Level", Game.current.level);
+            Game.current.Level = 0;
+            PlayerPrefs.SetInt("Level", Game.current.Level);
         }
     }
 }

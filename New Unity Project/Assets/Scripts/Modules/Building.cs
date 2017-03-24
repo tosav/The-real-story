@@ -23,19 +23,18 @@ public class Building : MonoBehaviour
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (repeat.GetComponent<ScrollMenu>().speed != 10)
+		if (repeat.GetComponent<ScrollMenu>().speedY != 10)
         {
             if (collision.gameObject.CompareTag("Planet")) {
                 fix= building.AddComponent<FixedJoint2D>();
                 fix.connectedBody = collision.gameObject.GetComponent<Rigidbody2D>();
 				fix.autoConfigureConnectedAnchor = false;
-
 				if (c)
 					c.State();
             }
             if (collision.gameObject.CompareTag("Building"))
             {
-                repeat.GetComponent<ScrollMenu>().speed = 10;
+                repeat.GetComponent<ScrollMenu>().speedY = 10;
                 fix = building.AddComponent<FixedJoint2D>();
                 fix.connectedBody = collision.gameObject.GetComponent<Rigidbody2D>();
 				fix.autoConfigureConnectedAnchor = false;

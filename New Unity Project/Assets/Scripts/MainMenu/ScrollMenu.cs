@@ -4,23 +4,30 @@ using UnityEngine;
 using System;
 
 public class ScrollMenu : MonoBehaviour {
-    public float speed = 5f, checkPosX = 0f, checkPosY = 0f;
-    private RectTransform rec;
-    private void Start()
-    {
-        rec = GetComponent<RectTransform>();
-    }
+	//идеально
+    public float speedX = 0f ,speedY = 5f, checkPosX = 0f, checkPosY = 0f;
     private void FixedUpdate()
     {
-		if (speed >= 0) {
-			if (rec.offsetMin.y < checkPosY) {
-				rec.offsetMin += new Vector2 (0, speed);
-				rec.offsetMax += new Vector2 (0, speed);
+		if (speedY >= 0) {
+			if (this.GetComponent<RectTransform>().offsetMin.y < checkPosY) {
+				this.GetComponent<RectTransform>().offsetMin += new Vector2 (0, speedY);
+				this.GetComponent<RectTransform>().offsetMax += new Vector2 (0, speedY);
 			} 
 		} else {
-			if (rec.offsetMin.y > checkPosY) {
-				rec.offsetMin += new Vector2 (0, speed);
-				rec.offsetMax += new Vector2 (0, speed);
+			if (this.GetComponent<RectTransform>().offsetMin.y > checkPosY) {
+				this.GetComponent<RectTransform>().offsetMin += new Vector2 (0, speedY);
+				this.GetComponent<RectTransform>().offsetMax += new Vector2 (0, speedY);
+			} 
+		}
+		if (speedX >= 0) {
+			if (this.GetComponent<RectTransform>().offsetMin.x < checkPosX) {
+				this.GetComponent<RectTransform>().offsetMin += new Vector2 (0, speedX);
+				this.GetComponent<RectTransform>().offsetMax += new Vector2 (0, speedX);
+			} 
+		} else {
+			if (this.GetComponent<RectTransform>().offsetMin.x > checkPosX) {
+				this.GetComponent<RectTransform>().offsetMin += new Vector2 (0, speedX);
+				this.GetComponent<RectTransform>().offsetMax += new Vector2 (0, speedX);
 			} 
 		}
     }

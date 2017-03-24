@@ -38,8 +38,8 @@ public class Controller : MonoBehaviour {
         }
         else if (i == Building.GetComponent<Building>().buildings.Length)
         {
-            Building.GetComponent<Building>().repeat.GetComponent<ScrollMenu>().speed = 10f;
-            Building.GetComponent<Building>().nextlevel.GetComponent<ScrollMenu>().speed = 10f;
+			Building.GetComponent<Building>().repeat.GetComponent<ScrollMenu>().speedY = 10f;
+			Building.GetComponent<Building>().nextlevel.GetComponent<ScrollMenu>().speedY = 10f;
         }
     }
     private void OnMouseDown()
@@ -48,10 +48,13 @@ public class Controller : MonoBehaviour {
     }
 	private void Update()//тут будут рождаться враги
 	{
-		timer -= Time.deltaTime;
-		if (timer <= 0 & Building.GetComponent<Building>().repeat.GetComponent<ScrollMenu>().speed != 10f) {
-			timer= delayTimer;
-			GameObject en = Instantiate (enemy);
+		if (GameManager.instance.GameStarted) {
+			timer -= Time.deltaTime;
+			if (timer <= 0 & Building.GetComponent<Building> ().repeat.GetComponent<ScrollMenu> ().speedY != 10f) {
+				timer = delayTimer;
+				GameObject en = Instantiate (enemy);
+				en.SetActive (true);
+			}
 		}
 	}
 }
