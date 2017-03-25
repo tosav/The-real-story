@@ -9,8 +9,6 @@ public class Play : MonoBehaviour
     public Text gameName;
 	public GameObject menubutton;
 	public AudioClip hit;
-	public GameObject light;
-	public GameObject gameLight;
 	AudioSource source;
 
 	void Start()
@@ -29,7 +27,5 @@ public class Play : MonoBehaviour
 		menubutton.GetComponent<ScrollMenu>().checkPosY = 0;
         // Game g = new Game();
 		GameManager.instance.EnterGame ();
-		light.SetActive (false);
-		gameLight.SetActive (true);
     }
 }

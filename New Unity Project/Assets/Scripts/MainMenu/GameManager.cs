@@ -5,14 +5,16 @@ using UnityEngine.Assertions;
 public class GameManager : MonoBehaviour {
 
 	public static GameManager instance = null;
+    public GameObject light;
+    public GameObject gameLight;
 
-	[SerializeField] private GameObject mainMenu;
+    [SerializeField] private GameObject mainMenu;
 	[SerializeField] private GameObject mainCamera;
 
 	private bool playerActive = false;
 	private bool gameOver = false;
 	private bool gameStarted = false;
-	private int gameLevel=0;
+	private int gameLevel=1;
 	public bool PlayerActive {
 		get { return playerActive; }
 	}
@@ -57,15 +59,22 @@ public class GameManager : MonoBehaviour {
 		playerActive = true;
 	}
 
-	public void EnterGame() {
-		print("вроде защел");
-		mainMenu.SetActive (false);
+	public void EnterGame()
+    {
+        light.SetActive(false);
+        gameLight.SetActive(true);
+        mainMenu.SetActive (false);
 		mainCamera.SetActive (true);
 		gameStarted = true;
 	}
 	public void EnterMenu() {
 		mainMenu.SetActive (true);
-	}
+        mainCamera.SetActive(false);
+        light.SetActive(true);
+        gameLight.SetActive(false);
+        gameStarted = false;
+        //ну и тип сохранялки надо наверно и проверки
+    }
 	public void LevelPassed(){
 		gameLevel++;
 		Game.current.Level = gameLevel;
