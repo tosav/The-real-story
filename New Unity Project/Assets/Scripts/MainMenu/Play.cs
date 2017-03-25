@@ -25,7 +25,6 @@ public class Play : MonoBehaviour
         buttons.GetComponent<ScrollMenu>().checkPosY = -200f;
 		menubutton.GetComponent<ScrollMenu>().speedY = 10f;
 		menubutton.GetComponent<ScrollMenu>().checkPosY = 0;
-        // Game g = new Game();
 		GameManager.instance.EnterGame ();
     }
 }

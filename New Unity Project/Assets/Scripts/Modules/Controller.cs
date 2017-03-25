@@ -15,7 +15,7 @@ public class Controller : MonoBehaviour {
 
     private void Start()
     {
-        switch (GameManager.instance.GameLevel)
+        switch (1)
         {
             case 1:
                 delayTimer = 0;
@@ -36,8 +36,8 @@ public class Controller : MonoBehaviour {
         Build[0].GetComponent<Building>().i = 0;
         Bul.GetComponent<Building>().buildings = Building.GetComponent<Building>().buildings;
 		timer = delayTimer;
-		enemy.GetComponent<Enemy_event>().repeat= Build[0].GetComponent<Building>().repeat;
-        enemy.SetActive(false);
+	/*	enemy.GetComponent<Enemy_event>().repeat= Build[0].GetComponent<Building>().repeat;
+        enemy.SetActive(false);*/
     }
 
     public void State()
@@ -61,14 +61,16 @@ public class Controller : MonoBehaviour {
     }
     private void OnMouseDown()
     {
-        if (GameManager.instance.GameStarted)
-        {
-            Build[i].GetComponent<Rigidbody2D>().gravityScale = 9.8f;
-        }
+        print("im here");
+        Build[i].gameObject.GetComponent<Rigidbody2D>().gravityScale = 9.8f;
+        /*if (GameManager.instance.GameStarted)
+          {
+              Build[i].gameObject.GetComponent<Rigidbody2D>().gravityScale = 9.8f;
+          }*/
     }
 	private void Update()//тут будут рождаться враги
 	{
-
+/*
         if (GameManager.instance.GameStarted && delayTimer!=0)
         {
 
@@ -79,6 +81,6 @@ public class Controller : MonoBehaviour {
                     GameObject en = Instantiate(enemy);
                     en.SetActive(true);
             }
-        }
+        }*/
 	}
 }

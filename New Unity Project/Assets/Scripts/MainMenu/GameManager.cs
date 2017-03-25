@@ -5,7 +5,7 @@ using UnityEngine.Assertions;
 public class GameManager : MonoBehaviour {
 
 	public static GameManager instance = null;
-    public GameObject light;
+    public GameObject menuLight;
     public GameObject gameLight;
 
     [SerializeField] private GameObject mainMenu;
@@ -36,8 +36,9 @@ public class GameManager : MonoBehaviour {
 			Destroy (gameObject);
 		}
 		DontDestroyOnLoad (gameObject);
-		Assert.IsNotNull (mainMenu);
-		mainMenu.SetActive (false);
+        DontDestroyOnLoad(mainMenu);
+        Assert.IsNotNull (mainMenu);
+        mainMenu.SetActive (false);
 	}
 
 	// Use this for initialization
@@ -61,22 +62,24 @@ public class GameManager : MonoBehaviour {
 
 	public void EnterGame()
     {
-        light.SetActive(false);
+        menuLight.SetActive(false);
         gameLight.SetActive(true);
         mainMenu.SetActive (false);
 		mainCamera.SetActive (true);
 		gameStarted = true;
 	}
 	public void EnterMenu() {
-		mainMenu.SetActive (true);
+        
+        mainMenu.SetActive (true);
         mainCamera.SetActive(false);
-        light.SetActive(true);
+        menuLight.SetActive(true);
         gameLight.SetActive(false);
         gameStarted = false;
+
         //ну и тип сохранялки надо наверно и проверки
     }
 	public void LevelPassed(){
 		gameLevel++;
 		Game.current.Level = gameLevel;
-	}
+    }
 }

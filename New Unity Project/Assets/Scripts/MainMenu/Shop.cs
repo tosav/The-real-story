@@ -7,7 +7,7 @@ public class Shop : MonoBehaviour {
     public GameObject buttons;
     public Text GameName;
 	public GameObject Earth;
-    public GameObject gamebuttons;
+    public GameObject menubutton;
 
     private void OnMouseDown()
     {
@@ -17,7 +17,7 @@ public class Shop : MonoBehaviour {
         buttons.GetComponent<ScrollMenu>().checkPosY = -200f;
 		Earth.GetComponent<ScrollMenu>().speedY = -10f;
         Earth.GetComponent<ScrollMenu>().checkPosY = -400f;
-		gamebuttons.GetComponent<ScrollMenu>().speedY = 10f;
-        gamebuttons.GetComponent<ScrollMenu>().checkPosY = 0;
+        menubutton.GetComponent<ScrollMenu>().speedY = 10f;
+        menubutton.GetComponent<ScrollMenu>().checkPosY = 0;
     }
 }

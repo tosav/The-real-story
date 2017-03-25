@@ -10,7 +10,7 @@ public class EarthBut : MonoBehaviour {
     private float i = 1;
     private double z = 0;
     private int time=10;
-    /*public Transform enemy;
+    public Transform enemy;
     private float gravitationalForce = 7;
     private Vector3 directionOfBirdFromPlanet;
     /*void Start()
@@ -24,7 +24,6 @@ public class EarthBut : MonoBehaviour {
     }*/
     void FixedUpdate()
     {
-
         if (GameManager.instance.GameStarted)
         {
             switch (GameManager.instance.GameLevel)
