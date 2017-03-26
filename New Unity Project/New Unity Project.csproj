@@ -112,15 +112,16 @@
     <Compile Include="Assets\GoogleMobileAds\Platforms\Android\RewardBasedVideoAdClient.cs" />
     <Compile Include="Assets\GoogleMobileAds\Platforms\Android\Utils.cs" />
     <Compile Include="Assets\GoogleMobileAds\Platforms\GoogleMobileAdsClientFactory.cs" />
-    <Compile Include="Assets\MenuCamera.cs" />
     <Compile Include="Assets\Scripts\Camera2DFollow.cs" />
     <Compile Include="Assets\Scripts\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\Levels\Enemy_trajectory.cs" />
     <Compile Include="Assets\Scripts\Levels\Number.cs" />
     <Compile Include="Assets\Scripts\MainMenu\Buttons.cs" />
+    <Compile Include="Assets\Scripts\MainMenu\Destoy.cs" />
     <Compile Include="Assets\Scripts\MainMenu\Game.cs" />
     <Compile Include="Assets\Scripts\MainMenu\GameManager.cs" />
     <Compile Include="Assets\Scripts\MainMenu\LoadSave.cs" />
+    <Compile Include="Assets\Scripts\MainMenu\MenuCamera.cs" />
     <Compile Include="Assets\Scripts\MainMenu\MyTools.cs" />
     <Compile Include="Assets\Scripts\MainMenu\Play.cs" />
     <Compile Include="Assets\Scripts\MainMenu\ScrollMenu.cs" />

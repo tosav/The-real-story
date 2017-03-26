@@ -40,6 +40,9 @@ public class Building : MonoBehaviour
 				bom = Instantiate(boom);
 				bom.GetComponent<Transform>().position = transform.position;
 				bom.GetComponent<Animator>().Play(boom.GetComponent<Animator>().GetHashCode());
+                Destroy(gameObject);
+                Destroy(collision.gameObject);
+                Destroy(bom, bom.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length + 1f);
 
             }
         }

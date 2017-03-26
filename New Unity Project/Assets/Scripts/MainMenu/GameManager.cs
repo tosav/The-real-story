@@ -34,12 +34,11 @@ public class GameManager : MonoBehaviour {
 			instance = this;
 		} else if (instance != this) {
 			Destroy (gameObject);
-		}
-		DontDestroyOnLoad (gameObject);
-        DontDestroyOnLoad(mainMenu);
-        Assert.IsNotNull (mainMenu);
-        mainMenu.SetActive (false);
-	}
+        }
+        DontDestroyOnLoad(gameObject);
+        Assert.IsNotNull(mainMenu);
+        mainMenu.SetActive(false);
+    }
 
 	// Use this for initialization
 	void Start () {

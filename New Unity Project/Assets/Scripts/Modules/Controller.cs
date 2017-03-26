@@ -50,6 +50,7 @@ public class Controller : MonoBehaviour {
             Build[i + 1].GetComponent<Building>().nextlevel = Build[0].GetComponent<Building>().nextlevel;
             Build[i + 1].GetComponent<Building>().repeat = Build[0].GetComponent<Building>().repeat;
             Build[i + 1].GetComponent<Building>().boom = Build[0].GetComponent<Building>().boom;
+            Build[i + 1].GetComponent<RectTransform>().localScale = new Vector3(0.02f, 0.02f);
             i ++;
         }
         else if (i == Building.GetComponent<Building>().buildings.Length)
