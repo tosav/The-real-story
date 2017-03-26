@@ -138,6 +138,8 @@
     <Compile Include="Assets\Scripts\Platformer2DUserControl.cs" />
     <Compile Include="Assets\Scripts\PlatformerCharacter2D.cs" />
     <Compile Include="Assets\Scripts\Restarter.cs" />
+    <Compile Include="Assets\attack.cs" />
+    <Compile Include="Assets\chop.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\PlayServicesResolver\Editor\play-services-resolver.txt" />

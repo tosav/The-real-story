@@ -30,12 +30,13 @@ public class GameManager : MonoBehaviour {
 	}
 
 	void Awake() {
-		if (instance == null) {
-			instance = this;
+		if (instance == null)
+        {
+            DontDestroyOnLoad(gameObject);
+            instance = this;
 		} else if (instance != this) {
 			Destroy (gameObject);
         }
-        DontDestroyOnLoad(gameObject);
         Assert.IsNotNull(mainMenu);
         mainMenu.SetActive(false);
     }
@@ -79,6 +80,5 @@ public class GameManager : MonoBehaviour {
     }
 	public void LevelPassed(){
 		gameLevel++;
-		Game.current.Level = gameLevel;
     }
 }

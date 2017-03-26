@@ -42,7 +42,13 @@ public class Controller : MonoBehaviour {
 
     public void State()
     {
-        if (i < Building.GetComponent<Building>().buildings.Length)
+        if (i == Building.GetComponent<Building>().buildings.Length-1)
+        {
+            GameManager.instance.LevelPassed();
+            Building.GetComponent<Building>().repeat.GetComponent<ScrollMenu>().speedY = 10f;
+            Building.GetComponent<Building>().nextlevel.GetComponent<ScrollMenu>().speedY = 10f;
+        }
+        else if (i < Building.GetComponent<Building>().buildings.Length)
         {
             Build[i + 1] = Instantiate(Bul);
             Build[i + 1].GetComponent<Building>().i = i + 1;
@@ -50,24 +56,16 @@ public class Controller : MonoBehaviour {
             Build[i + 1].GetComponent<Building>().nextlevel = Build[0].GetComponent<Building>().nextlevel;
             Build[i + 1].GetComponent<Building>().repeat = Build[0].GetComponent<Building>().repeat;
             Build[i + 1].GetComponent<Building>().boom = Build[0].GetComponent<Building>().boom;
-            Build[i + 1].GetComponent<RectTransform>().localScale = new Vector3(0.02f, 0.02f);
+            Build[i + 1].GetComponent<RectTransform>().localScale = new Vector3(0.5f, 0.5f);
             i ++;
-        }
-        else if (i == Building.GetComponent<Building>().buildings.Length)
-        {
-            GameManager.instance.LevelPassed();
-			Building.GetComponent<Building>().repeat.GetComponent<ScrollMenu>().speedY = 10f;
-			Building.GetComponent<Building>().nextlevel.GetComponent<ScrollMenu>().speedY = 10f;
         }
     }
     private void OnMouseDown()
     {
-        print("im here");
-        Build[i].gameObject.GetComponent<Rigidbody2D>().gravityScale = 9.8f;
-        /*if (GameManager.instance.GameStarted)
+        if (GameManager.instance.GameStarted)
           {
-              Build[i].gameObject.GetComponent<Rigidbody2D>().gravityScale = 9.8f;
-          }*/
+              Build[i].GetComponent<Building>().gravity=9.8f;
+          }
     }
 	private void Update()//тут будут рождаться враги
 	{

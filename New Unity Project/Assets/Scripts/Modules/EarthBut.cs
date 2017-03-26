@@ -13,15 +13,6 @@ public class EarthBut : MonoBehaviour {
     public Transform enemy;
     private float gravitationalForce = 7;
     private Vector3 directionOfBirdFromPlanet;
-    /*void Start()
-    {
-        directionOfBirdFromPlanet = Vector3.up;
-    }
-    void FixedUpdate()
-    {
-        directionOfBirdFromPlanet = (transform.position - enemy.position).normalized;
-        enemy.GetComponent<Rigidbody2D>().AddForce(directionOfBirdFromPlanet * gravitationalForce);
-    }*/
     void FixedUpdate()
     {
         if (GameManager.instance.GameStarted)

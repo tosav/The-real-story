@@ -13,14 +13,18 @@ public class Building : MonoBehaviour
     public int i = 0;
 	public Controller c;
 	private GameObject bom;
-
+    public float gravity=0;
     void Start()
     {
-        gameObject.GetComponent<Rigidbody2D>().gravityScale = 9.8f;
         gameObject.GetComponent<SpriteRenderer>().sprite = buildings[i];
         if (gameObject.GetComponent<PolygonCollider2D>())
             Destroy(gameObject.GetComponent<PolygonCollider2D>());
         gameObject.AddComponent<PolygonCollider2D>();
+    }
+    void FixedUpdate()
+    {
+        if (GameObject.FindGameObjectWithTag("Planet"))
+            GetComponent<Rigidbody2D>().AddForce((GameObject.FindGameObjectWithTag("Planet").transform.position - transform.position).normalized * gravity);
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -34,8 +38,9 @@ public class Building : MonoBehaviour
 				if (c)
 					c.State();
             }
-            if (collision.gameObject.CompareTag("Building"))
+            else if (collision.gameObject.CompareTag("Building"))
             {
+                print("im here");
                 repeat.GetComponent<ScrollMenu>().speedY = 10;
 				bom = Instantiate(boom);
 				bom.GetComponent<Transform>().position = transform.position;

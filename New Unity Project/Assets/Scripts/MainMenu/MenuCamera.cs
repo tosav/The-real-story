@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Assertions;
 
 public class MenuCamera : MonoBehaviour {
-
+    public GameObject game;
     public static MenuCamera instance = null;
 
     void Awake()
@@ -12,11 +12,12 @@ public class MenuCamera : MonoBehaviour {
         if (instance == null)
         {
             instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         else if (instance != this)
         {
             Destroy(gameObject);
         }
-        DontDestroyOnLoad(gameObject);
+        Assert.IsNotNull(game);
     }
 }
