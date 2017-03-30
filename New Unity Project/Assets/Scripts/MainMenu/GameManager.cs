@@ -11,11 +11,12 @@ public class GameManager : MonoBehaviour {
     [SerializeField] private GameObject mainMenu;
 	[SerializeField] private GameObject mainCamera;
 
-	private bool playerActive = false;
-	private bool gameOver = false;
-	private bool gameStarted = false;
-	private int gameLevel=1;
-	public bool PlayerActive {
+	private bool playerActive = false;//
+	private bool gameOver = false;//проигрыш
+	private bool gameStarted = false;//игра в процессе
+	private int gameLevel=1;//уровень игры
+    private AppPaused pause;
+    public bool PlayerActive {
 		get { return playerActive; }
 	}
 	public int GameLevel {
@@ -37,6 +38,7 @@ public class GameManager : MonoBehaviour {
 		} else if (instance != this) {
 			Destroy (gameObject);
         }
+        pause = new AppPaused();
         Assert.IsNotNull(mainMenu);
         mainMenu.SetActive(false);
     }
@@ -46,14 +48,10 @@ public class GameManager : MonoBehaviour {
 		EnterMenu ();
 	}
 
-	// Update is called once per frame
-	void Update () {
-
-	}
-
 	public void PlayerCollided() {
 		gameOver = true;
-		Game.current.Lives -=1;
+        gameStarted = false;
+        Game.current.Lives -=1;
 	}
 
 	public void PlayerStartedGame() {
@@ -80,5 +78,36 @@ public class GameManager : MonoBehaviour {
     }
 	public void LevelPassed(){
 		gameLevel++;
+        gameStarted = false;
+    }
+    void pauseGame()
+    {
+        Time.timeScale = 0f;
+        AudioListener.pause = true;
+        AudioListener.volume = 0.0f;//set volume audio
+        Debug.Log("paused..");
+    }
+
+    void resumeGame()
+    {
+        Time.timeScale = 1f;
+        AudioListener.pause = false;
+        AudioListener.volume = 1; //set audio volume
+        Debug.Log("resumed..");
+    }
+    void Update()
+    {
+        //Create condition
+        if (pause.IsPaused != AudioListener.pause)
+        {
+            if (pause.IsPaused)
+            {
+                pauseGame();
+            }
+            else
+            {
+                resumeGame();
+            }
+        }
     }
 }

@@ -8,11 +8,7 @@ public class EarthBut : MonoBehaviour {
     public GameObject Earth;
     private bool k=false;//true - возрастание; false - убывание
     private float i = 1;
-    private double z = 0;
-    private int time=10;
-    public Transform enemy;
-    private float gravitationalForce = 7;
-    private Vector3 directionOfBirdFromPlanet;
+    private int time=10; 
     void FixedUpdate()
     {
         if (GameManager.instance.GameStarted)

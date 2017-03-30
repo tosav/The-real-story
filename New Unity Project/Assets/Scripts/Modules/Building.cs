@@ -48,6 +48,7 @@ public class Building : MonoBehaviour
                 Destroy(gameObject);
                 Destroy(collision.gameObject);
                 Destroy(bom, bom.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length + 1f);
+                GameManager.instance.PlayerCollided();
 
             }
         }

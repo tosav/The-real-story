@@ -17,14 +17,15 @@ public class Play : MonoBehaviour
 	}
 
     private void OnMouseDown()
-	{
-		source.PlayOneShot (hit);
-		gameName.GetComponent<ScrollMenu>().speedY = 10f;
+    {
+        GetComponent<AudioSource>().Play();
+        gameName.GetComponent<ScrollMenu>().speedY = 10f;
 		gameName.GetComponent<ScrollMenu>().checkPosY = 100f;
 		buttons.GetComponent<ScrollMenu>().speedY = -10f;
         buttons.GetComponent<ScrollMenu>().checkPosY = -200f;
 		menubutton.GetComponent<ScrollMenu>().speedY = 10f;
 		menubutton.GetComponent<ScrollMenu>().checkPosY = 0;
 		GameManager.instance.EnterGame ();
+        source.PlayOneShot(hit);
     }
 }

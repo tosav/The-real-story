@@ -6,15 +6,14 @@ using UnityEngine.UI;
 public class Restart : MonoBehaviour { 
 
 	public AudioClip hit;
-	AudioSource source;
 
 	void Start()
 	{
-		source = GetComponent<AudioSource> ();
 	}
     private void OnMouseDown()
     {
-		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-		source.PlayOneShot (hit);
+        GetComponent<AudioSource>().Play();
+        new Controller().PlayforRestart();
+        GetComponent<AudioSource>().PlayOneShot (hit);
     }
 }

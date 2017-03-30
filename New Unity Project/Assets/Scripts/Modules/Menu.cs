@@ -7,18 +7,13 @@ using UnityEngine.UI;
 public class Menu : MonoBehaviour { 
 
 	public AudioClip hit;
-	AudioSource source;
     public GameObject buttons;
     public Text gameName;
     public GameObject menubutton;
-
-    void Start()
-	{
-		source = GetComponent<AudioSource> ();
-	}
     private void OnMouseDown()
     {
-        source.PlayOneShot(hit);
+        GetComponent<AudioSource>().Play();
+        GetComponent<AudioSource>().PlayOneShot(hit);
         gameName.GetComponent<ScrollMenu>().speedY = -10f;
         gameName.GetComponent<ScrollMenu>().checkPosY = 0f;
         buttons.GetComponent<ScrollMenu>().speedY = 10f;
