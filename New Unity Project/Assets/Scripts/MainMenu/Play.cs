@@ -1,31 +1,33 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Play : MonoBehaviour
 {
     public GameObject buttons;
     public Text gameName;
-	public GameObject menubutton;
 	public AudioClip hit;
 	AudioSource source;
 
 	void Start()
 	{
 		source = GetComponent<AudioSource> ();
-	}
+        PlayerPrefs.DeleteAll();
+    }
 
     private void OnMouseDown()
     {
+        if (!PlayerPrefs.HasKey("level"))
+            PlayerPrefs.SetInt("level", 1);
+        SceneManager.LoadScene("Level" + PlayerPrefs.GetInt("level"));
         GetComponent<AudioSource>().Play();
         gameName.GetComponent<ScrollMenu>().speedY = 10f;
 		gameName.GetComponent<ScrollMenu>().checkPosY = 100f;
 		buttons.GetComponent<ScrollMenu>().speedY = -10f;
         buttons.GetComponent<ScrollMenu>().checkPosY = -200f;
-		menubutton.GetComponent<ScrollMenu>().speedY = 10f;
-		menubutton.GetComponent<ScrollMenu>().checkPosY = 0;
-		GameManager.instance.EnterGame ();
         source.PlayOneShot(hit);
     }
 }

@@ -10,7 +10,10 @@ public class Next : MonoBehaviour
     private void OnMouseDown()
     {
         GetComponent<AudioSource>().Play();
-        GameManager.instance.LevelPassed();
+        SceneManager.LoadScene("Level"+(Convert.ToInt32(SceneManager.GetActiveScene().name.Substring(5))+1));
+        PlayerPrefs.SetInt("level", Convert.ToInt32(SceneManager.GetActiveScene().name.Substring(5)) + 1);
+        //сохранение очков
+
         GetComponent<AudioSource>().PlayOneShot (hit);
     }
 }

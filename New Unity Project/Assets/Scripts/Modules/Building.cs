@@ -8,7 +8,7 @@ public class Building : MonoBehaviour
     private FixedJoint2D fix;
     public Sprite[] buildings;
     public GameObject repeat;
-    public GameObject nextlevel;
+    public GameObject next;
     public GameObject boom;
     public int i = 0;
 	public Controller c;
@@ -16,10 +16,13 @@ public class Building : MonoBehaviour
     public float gravity=0;
     void Start()
     {
+        repeat = GameObject.FindGameObjectWithTag("Repeat");
+        next = GameObject.FindGameObjectWithTag("Next");
         gameObject.GetComponent<SpriteRenderer>().sprite = buildings[i];
         if (gameObject.GetComponent<PolygonCollider2D>())
             Destroy(gameObject.GetComponent<PolygonCollider2D>());
         gameObject.AddComponent<PolygonCollider2D>();
+        c = GameObject.FindGameObjectWithTag("Controller").GetComponent<Controller>();
     }
     void FixedUpdate()
     {
@@ -40,11 +43,9 @@ public class Building : MonoBehaviour
             }
             else if (collision.gameObject.CompareTag("Building"))
             {
-                print("im here");
                 repeat.GetComponent<ScrollMenu>().speedY = 10;
 				bom = Instantiate(boom);
 				bom.GetComponent<Transform>().position = transform.position;
-				bom.GetComponent<Animator>().Play(boom.GetComponent<Animator>().GetHashCode());
                 Destroy(gameObject);
                 Destroy(collision.gameObject);
                 Destroy(bom, bom.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length + 1f);
