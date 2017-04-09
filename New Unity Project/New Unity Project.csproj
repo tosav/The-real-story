@@ -52,9 +52,6 @@
     <Reference Include="UnityEngine">
       <HintPath>Library\UnityAssemblies\UnityEngine.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.Advertisements">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Advertisements.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
@@ -69,9 +66,6 @@
     </Reference>
     <Reference Include="UnityEngine.HoloLens">
       <HintPath>Library\UnityAssemblies\UnityEngine.HoloLens.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.Purchasing">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Purchasing.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.VR">
       <HintPath>Library\UnityAssemblies\UnityEngine.VR.dll</HintPath>
@@ -118,13 +112,15 @@
     <Compile Include="Assets\GoogleMobileAds\Platforms\Android\RewardBasedVideoAdClient.cs" />
     <Compile Include="Assets\GoogleMobileAds\Platforms\Android\Utils.cs" />
     <Compile Include="Assets\GoogleMobileAds\Platforms\GoogleMobileAdsClientFactory.cs" />
+    <Compile Include="Assets\MainSong.cs" />
+    <Compile Include="Assets\Scripts\AppPaused.cs" />
+    <Compile Include="Assets\Scripts\Camera2DFollow.cs" />
+    <Compile Include="Assets\Scripts\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\Levels\Enemy_trajectory.cs" />
     <Compile Include="Assets\Scripts\Levels\Number.cs" />
-    <Compile Include="Assets\Scripts\Levels\trajectory.cs" />
     <Compile Include="Assets\Scripts\MainMenu\Buttons.cs" />
-    <Compile Include="Assets\Scripts\MainMenu\Game.cs" />
-    <Compile Include="Assets\Scripts\MainMenu\LoadSave.cs" />
-    <Compile Include="Assets\Scripts\MainMenu\MyTools.cs" />
+    <Compile Include="Assets\Scripts\MainMenu\Destoy.cs" />
+    <Compile Include="Assets\Scripts\MainMenu\GameManager.cs" />
     <Compile Include="Assets\Scripts\MainMenu\Play.cs" />
     <Compile Include="Assets\Scripts\MainMenu\ScrollMenu.cs" />
     <Compile Include="Assets\Scripts\MainMenu\Settings.cs" />
@@ -133,10 +129,15 @@
     <Compile Include="Assets\Scripts\Modules\Controller.cs" />
     <Compile Include="Assets\Scripts\Modules\EarthBut.cs" />
     <Compile Include="Assets\Scripts\Modules\Enemy_event.cs" />
-    <Compile Include="Assets\Scripts\Modules\Gravity.cs" />
     <Compile Include="Assets\Scripts\Modules\Menu.cs" />
     <Compile Include="Assets\Scripts\Modules\Next.cs" />
     <Compile Include="Assets\Scripts\Modules\Restart.cs" />
+    <Compile Include="Assets\Scripts\Platformer2DUserControl.cs" />
+    <Compile Include="Assets\Scripts\PlatformerCharacter2D.cs" />
+    <Compile Include="Assets\Scripts\Restarter.cs" />
+    <Compile Include="Assets\Teaching.cs" />
+    <Compile Include="Assets\attack.cs" />
+    <Compile Include="Assets\chop.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\PlayServicesResolver\Editor\play-services-resolver.txt" />

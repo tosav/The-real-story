@@ -7,17 +7,13 @@ using UnityEngine.UI;
 public class Next : MonoBehaviour
 {
 	public AudioClip hit;
-	AudioSource source;
-
-	void Start()
-	{
-		source = GetComponent<AudioSource> ();
-	}
     private void OnMouseDown()
     {
         GetComponent<AudioSource>().Play();
-        String name = "Level" + Convert.ToString(Convert.ToInt32(SceneManager.GetActiveScene().name.Replace("Level", "")) + 1);
-		SceneManager.LoadScene(name);
-		source.PlayOneShot (hit);
+        SceneManager.LoadScene("Level"+(Convert.ToInt32(SceneManager.GetActiveScene().name.Substring(5))+1));
+        PlayerPrefs.SetInt("level", Convert.ToInt32(SceneManager.GetActiveScene().name.Substring(5)) + 1);
+        //сохранение очков
+
+        GetComponent<AudioSource>().PlayOneShot (hit);
     }
 }

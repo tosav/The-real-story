@@ -1,73 +1,70 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.Assertions;
+using GoogleMobileAds.Api;
 
 public class GameManager : MonoBehaviour {
 
 	public static GameManager instance = null;
 
-	[SerializeField] private GameObject mainMenu;
-	[SerializeField] private GameObject mainCamera;
-
-	private bool playerActive = false;
-	private bool gameOver = false;
-	private bool gameStarted = false;
-	private int gameLevel=0;
-	public bool PlayerActive {
-		get { return playerActive; }
-	}
-	public int GameLevel {
-		get { return gameLevel; }
-	}
-	public bool GameOver {
-		get { return gameOver; }
-	}
-
-	public bool GameStarted {
-		get { return gameStarted; }
-	}
-
+   // private const string banner = "ca-app-pub-2129853974374124~3225831096";
+    private AppPaused pause;
 	void Awake() {
-		if (instance == null) {
-			instance = this;
-		} else if (instance != this) {
-			Destroy (gameObject);
-		}
-		DontDestroyOnLoad (gameObject);
-		Assert.IsNotNull (mainMenu);
-		mainMenu.SetActive (false);
-	}
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else if (instance != this)
+        {
+            Destroy(gameObject);
+        }
+        // pause = new AppPaused();
+        if (!PlayerPrefs.HasKey("coin"))
+            PlayerPrefs.SetInt("coin", 5);
+        if (!PlayerPrefs.HasKey("lives"))
+            PlayerPrefs.SetInt("lives", 5);
+    }
 
-	// Use this for initialization
-	void Start () {
-		EnterMenu ();
-	}
-
-	// Update is called once per frame
-	void Update () {
-
-	}
+    // Use this for initialization
+    void Start ()
+    {
+        /*BannerView bannerv = new BannerView(banner, AdSize.Banner, AdPosition.Bottom);
+        AdRequest request = new AdRequest.Builder().Build();
+        bannerv.LoadAd(request);*/
+    }
 
 	public void PlayerCollided() {
-		gameOver = true;
-		Game.current.Lives -=1;
-	}
+        PlayerPrefs.SetInt("lives", PlayerPrefs.GetInt("lives")-1);
+    }
+    void pauseGame()
+    {
+        Time.timeScale = 0f;
+        AudioListener.pause = true;
+        AudioListener.volume = 0.0f;//set volume audio
+        Debug.Log("paused..");
+    }
 
-	public void PlayerStartedGame() {
-		playerActive = true;
-	}
-
-	public void EnterGame() {
-		print("вроде защел");
-		mainMenu.SetActive (false);
-		mainCamera.SetActive (true);
-		gameStarted = true;
-	}
-	public void EnterMenu() {
-		mainMenu.SetActive (true);
-	}
-	public void LevelPassed(){
-		gameLevel++;
-		Game.current.Level = gameLevel;
-	}
+    void resumeGame()
+    {
+        Time.timeScale = 1f;
+        AudioListener.pause = false;
+        AudioListener.volume = 1; //set audio volume
+        Debug.Log("resumed..");
+    }
+    void Update()
+    {
+        //это чтоб если вышли из игры не играла музыка
+        //Create condition
+        /*if (pause.IsPaused != AudioListener.pause)
+        {
+            if (pause.IsPaused)
+            {
+                pauseGame();
+            }
+            else
+            {
+                resumeGame();
+            }
+        }*/
+    }
 }

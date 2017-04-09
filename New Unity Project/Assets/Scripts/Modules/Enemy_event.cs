@@ -10,22 +10,24 @@ public class Enemy_event : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-		if (repeat.GetComponent<ScrollMenu> ().speedY != 10) {
-			bom = Instantiate (boom);
+		if (repeat.GetComponent<ScrollMenu> ().speedY != 10)
+        {
+            Destroy(gameObject);
+            bom = Instantiate (boom);
 			bom.GetComponent<Transform> ().position = transform.position;
-			bom.GetComponent<Animator> ().Play (boom.GetComponent<Animator> ().GetHashCode ()); 
-			if (collision.gameObject.CompareTag ("Planet")) {
-
-				Destroy (boom);
-				Destroy (gameObject);
-			} else {
-				Destroy (collision.gameObject);
-				Destroy (boom);
-				Destroy (gameObject);
-			}
-		} else 
+			bom.GetComponent<Animator> ().Play (boom.GetComponent<Animator> ().GetHashCode ());
+            Controller c = GameObject.FindGameObjectWithTag("Controller").GetComponent<Controller>();
+            if (!collision.gameObject.CompareTag("Planet") && collision.gameObject != c.gmObject && collision.gameObject.CompareTag("Building"))
+            {
+                Destroy(collision.gameObject);
+                c.DecCount();
+            }
+            Destroy(gameObject);
+            Destroy(bom, bom.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length + 1f);
+        } else 
 		{
 			Destroy (this);
 		}
+
     }
 }
