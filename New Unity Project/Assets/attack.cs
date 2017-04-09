@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class attack : MonoBehaviour {
     
-    private float forceAmountForRotation =0.5f;
-    private float forceforce = 0.999f;
-
-
+    public float forceAmountForRotation =0.5f;
+    public float forceforce = 0.999f;
     // Update is called once per frame
     void Update()
     {

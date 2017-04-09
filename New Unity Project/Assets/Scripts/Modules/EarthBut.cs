@@ -62,20 +62,84 @@ public class EarthBut : MonoBehaviour {
                 Earth.GetComponent<Transform>().Rotate(Vector3.forward * Time.deltaTime * 200 * Convert.ToSingle(Math.Sin(Convert.ToDouble(i))));
                 break;
             case 4:
-                time = 5;
+                time = 10;
                 if (k)
                 {
-                    i = i * 1.1f;
+                    i = i * 1.2f;
                     if (i > 500)
                         k = !k;
                 }
                 else
                 {
-                    i = i / 1.001f;
-                    if (i < 1)
+                    i = i / 1.005f;
+                    if (i < 20)
                         k = !k;
                 }
                 Earth.GetComponent<Transform>().Rotate(Vector3.forward * Time.deltaTime / time * i);
+                break;
+            case 5:
+                time = 20;
+                if (k)
+                {
+                    i += 0.01f;
+                    if (i > 7230)
+                        k = !k;
+                }
+                else
+                {
+                    i -= 0.01f;
+                    if (i < -7230)
+                        k = !k;
+                }
+                Earth.GetComponent<Transform>().Rotate(Vector3.forward * Time.deltaTime * 200 * Convert.ToSingle(Math.Sin(Convert.ToDouble(i))));
+                break;
+            case 6:
+                time = 10;
+                if (k)
+                {
+                    i = i * 1.2f;
+                    if (i > 500)
+                        k = !k;
+                }
+                else
+                {
+                    i = i / 1.005f;
+                    if (i < 20)
+                        k = !k;
+                }
+                Earth.GetComponent<Transform>().Rotate(Vector3.forward * Time.deltaTime / time * i);
+                break;
+            case 7:
+                time = 30;
+                if (k)
+                {
+                    i += 0.01f;
+                    if (i > 7200)
+                        k = !k;
+                }
+                else
+                {
+                    i -= 0.01f;
+                    if (i < -7200)
+                        k = !k;
+                }
+                Earth.GetComponent<Transform>().Rotate(Vector3.forward * Time.deltaTime * 200 * Convert.ToSingle(Math.Sin(Convert.ToDouble(i))));
+                break;
+            case 8:
+                time = 20;
+                if (k)
+                {
+                    i += 0.01f;
+                    if (i > 3630)
+                        k = !k;
+                }
+                else
+                {
+                    i -= 0.01f;
+                    if (i < -3630)
+                        k = !k;
+                }
+                Earth.GetComponent<Transform>().Rotate(Vector3.forward * Time.deltaTime * 300 * Convert.ToSingle(Math.Sin(Convert.ToDouble(i))));
                 break;
             default:
                 Earth.GetComponent<Transform>().Rotate(Vector3.forward * Time.deltaTime / time * 5);

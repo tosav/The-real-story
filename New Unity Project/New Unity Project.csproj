@@ -135,6 +135,7 @@
     <Compile Include="Assets\Scripts\Platformer2DUserControl.cs" />
     <Compile Include="Assets\Scripts\PlatformerCharacter2D.cs" />
     <Compile Include="Assets\Scripts\Restarter.cs" />
+    <Compile Include="Assets\Teaching.cs" />
     <Compile Include="Assets\attack.cs" />
     <Compile Include="Assets\chop.cs" />
   </ItemGroup>
