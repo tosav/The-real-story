@@ -74,7 +74,9 @@ public class Controller : MonoBehaviour {
         if (GameObject.Find("cursor"))
         {
             Destroy(GameObject.Find("cursor"));
+            Destroy(GameObject.Find("attention"), GameObject.Find("attention").GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length + 1f);
         }
+
         if (Build[i])
         {
             Build[i].GetComponent<Building>().gravity = 9.8f;
