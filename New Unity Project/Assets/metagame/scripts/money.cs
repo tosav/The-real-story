@@ -7,27 +7,30 @@ using UnityEngine.UI;
 
 public class money : MonoBehaviour {
 
-    string str_m;
+   int money1;
+   string m;
 
     void Start()
     {
-        FileInfo f = new FileInfo("Assets/metagame/file/money.txt");
+	   if(PlayerPrefs.HasKey("money")==true) 
+	   { 
+			money1=PlayerPrefs.GetInt("money");
+			
+		} 
+		else
+		{
+			PlayerPrefs.SetInt("money", 2000);
+			PlayerPrefs.Save();
+			money1=PlayerPrefs.GetInt("money");	
+		}
     }
 
     void Update()
     {
-        p_m();
-        gameObject.GetComponent<Text>().text = str_m;
+	    m = Convert.ToString(money1);
+        gameObject.GetComponent<Text>().text = m;
+		
     }
 
-    void p_m()
-    {
-        StreamReader sr1 = new StreamReader("Assets/metagame/file/money.txt");
-        str_m = "";
-        while (!sr1.EndOfStream)
-        {
-            str_m += sr1.ReadLine();
-        }
-        sr1.Close();
-    }
+  
 }
