@@ -136,6 +136,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\PlayServicesResolver\Editor\play-services-resolver.txt" />
+    <None Include="Assets\PlayServicesResolver\proguard-messaging-workaround.txt" />
+    <None Include="Assets\PlayServicesResolver\proguard-unity.txt" />
     <None Include="Assets\Plugins\Android\GoogleMobileAdsPlugin\AndroidManifest.xml" />
     <None Include="Assets\metagame\file\ch.txt" />
     <None Include="Assets\metagame\file\era.txt" />

@@ -75,16 +75,48 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\GoogleMobileAds\Api\AdFailedToLoadEventArgs.cs" />
+    <Compile Include="Assets\GoogleMobileAds\Api\AdLoader.cs" />
+    <Compile Include="Assets\GoogleMobileAds\Api\AdPosition.cs" />
+    <Compile Include="Assets\GoogleMobileAds\Api\AdRequest.cs" />
+    <Compile Include="Assets\GoogleMobileAds\Api\AdSize.cs" />
+    <Compile Include="Assets\GoogleMobileAds\Api\BannerView.cs" />
+    <Compile Include="Assets\GoogleMobileAds\Api\CustomNativeEventArgs.cs" />
+    <Compile Include="Assets\GoogleMobileAds\Api\CustomNativeTemplateAd.cs" />
+    <Compile Include="Assets\GoogleMobileAds\Api\Gender.cs" />
+    <Compile Include="Assets\GoogleMobileAds\Api\ICustomInAppPurchase.cs" />
+    <Compile Include="Assets\GoogleMobileAds\Api\InterstitialAd.cs" />
+    <Compile Include="Assets\GoogleMobileAds\Api\Mediation\MediationExtras.cs" />
+    <Compile Include="Assets\GoogleMobileAds\Api\NativeExpressAdView.cs" />
+    <Compile Include="Assets\GoogleMobileAds\Api\Reward.cs" />
+    <Compile Include="Assets\GoogleMobileAds\Api\RewardBasedVideoAd.cs" />
+    <Compile Include="Assets\GoogleMobileAds\Common\DummyClient.cs" />
+    <Compile Include="Assets\GoogleMobileAds\Common\IAdLoaderClient.cs" />
+    <Compile Include="Assets\GoogleMobileAds\Common\IBannerClient.cs" />
+    <Compile Include="Assets\GoogleMobileAds\Common\ICustomNativeTemplateClient.cs" />
+    <Compile Include="Assets\GoogleMobileAds\Common\IInterstitialClient.cs" />
+    <Compile Include="Assets\GoogleMobileAds\Common\INativeExpressAdClient.cs" />
+    <Compile Include="Assets\GoogleMobileAds\Common\IRewardBasedVideoAdClient.cs" />
+    <Compile Include="Assets\GoogleMobileAds\Common\Utils.cs" />
+    <Compile Include="Assets\GoogleMobileAds\Platforms\Android\AdLoaderClient.cs" />
+    <Compile Include="Assets\GoogleMobileAds\Platforms\Android\BannerClient.cs" />
+    <Compile Include="Assets\GoogleMobileAds\Platforms\Android\CustomNativeTemplateClient.cs" />
+    <Compile Include="Assets\GoogleMobileAds\Platforms\Android\InAppPurchase.cs" />
+    <Compile Include="Assets\GoogleMobileAds\Platforms\Android\InterstitialClient.cs" />
+    <Compile Include="Assets\GoogleMobileAds\Platforms\Android\NativeExpressAdClient.cs" />
+    <Compile Include="Assets\GoogleMobileAds\Platforms\Android\RewardBasedVideoAdClient.cs" />
+    <Compile Include="Assets\GoogleMobileAds\Platforms\Android\Utils.cs" />
+    <Compile Include="Assets\GoogleMobileAds\Platforms\GoogleMobileAdsClientFactory.cs" />
     <Compile Include="Assets\MainSong.cs" />
     <Compile Include="Assets\Scripts\AppPaused.cs" />
     <Compile Include="Assets\Scripts\Camera2DFollow.cs" />
     <Compile Include="Assets\Scripts\CameraFollow.cs" />
+    <Compile Include="Assets\Scripts\GoogleMobileAdsDemoScript.cs" />
     <Compile Include="Assets\Scripts\Levels\Enemy_trajectory.cs" />
     <Compile Include="Assets\Scripts\Levels\Number.cs" />
     <Compile Include="Assets\Scripts\MainMenu\Buttons.cs" />
     <Compile Include="Assets\Scripts\MainMenu\Destoy.cs" />
     <Compile Include="Assets\Scripts\MainMenu\GameManager.cs" />
-    <Compile Include="Assets\Scripts\MainMenu\GoogleMobileAdsDemoHandler.cs" />
     <Compile Include="Assets\Scripts\MainMenu\Play.cs" />
     <Compile Include="Assets\Scripts\MainMenu\ScrollMenu.cs" />
     <Compile Include="Assets\Scripts\MainMenu\Settings.cs" />
@@ -103,6 +135,7 @@
     <Compile Include="Assets\attack.cs" />
     <Compile Include="Assets\chop.cs" />
     <Compile Include="Assets\metagame\scripts\NewBehaviourScript.cs" />
+    <Compile Include="Assets\metagame\scripts\camera.cs" />
     <Compile Include="Assets\metagame\scripts\changeImg_ch1.cs" />
     <Compile Include="Assets\metagame\scripts\changeImg_ch2.cs" />
     <Compile Include="Assets\metagame\scripts\changeImg_ch3.cs" />
@@ -110,9 +143,13 @@
     <Compile Include="Assets\metagame\scripts\clicker.cs" />
     <Compile Include="Assets\metagame\scripts\clicker_l.cs" />
     <Compile Include="Assets\metagame\scripts\discount.cs" />
+    <Compile Include="Assets\metagame\scripts\gameover.cs" />
     <Compile Include="Assets\metagame\scripts\money.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\PlayServicesResolver\Editor\play-services-resolver.txt" />
+    <None Include="Assets\PlayServicesResolver\proguard-messaging-workaround.txt" />
+    <None Include="Assets\PlayServicesResolver\proguard-unity.txt" />
     <None Include="Assets\Plugins\Android\GoogleMobileAdsPlugin\AndroidManifest.xml" />
     <None Include="Assets\metagame\file\ch.txt" />
     <None Include="Assets\metagame\file\era.txt" />
