@@ -12,6 +12,9 @@ public class Restart : MonoBehaviour {
     {
         GetComponent<AudioSource>().Play();
         GetComponent<ScrollMenu>().speedY = 0f;
+
+        MobileAdsScript scr = GameObject.FindGameObjectWithTag("Controller").GetComponent<MobileAdsScript>();
+        scr.DestroyInterstitial();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         GetComponent<AudioSource>().PlayOneShot (hit);
     }

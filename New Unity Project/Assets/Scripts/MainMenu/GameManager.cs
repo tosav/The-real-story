@@ -7,9 +7,7 @@ using GoogleMobileAds.Api;
 public class GameManager : MonoBehaviour {
 
 	public static GameManager instance = null;
-
-    private BannerView bannerView;
-    private const string banner = "ca-app-pub-2129853974374124/4702564299";
+    
     private AppPaused pause;
 	void Awake() {
         if (instance == null)
@@ -25,21 +23,10 @@ public class GameManager : MonoBehaviour {
             PlayerPrefs.SetInt("coin", 5);
         if (!PlayerPrefs.HasKey("lives"))
             PlayerPrefs.SetInt("lives", 5);
+
     }
 
     // Use this for initialization
-    void Start() {
-
-        BannerView bannerView = new BannerView(banner, AdSize.Banner, AdPosition.Top);
-        AdRequest request = new AdRequest.Builder().Build();
-        bannerView.LoadAd(request);
-    }
-
-
-
-
-
-
 
 
 	public void PlayerCollided() {

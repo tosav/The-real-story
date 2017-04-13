@@ -44,7 +44,10 @@ public class Building : MonoBehaviour
             else if (collision.gameObject.CompareTag("Building"))
             {
                 repeat.GetComponent<ScrollMenu>().speedY = 10;
-				bom = Instantiate(boom);
+                MobileAdsScript scr= c.GetComponent<MobileAdsScript>();
+                scr.RequestInterstitial();
+                scr.ShowInterstitial();
+                bom = Instantiate(boom);
 				bom.GetComponent<Transform>().position = transform.position;
                 Destroy(gameObject);
                 Destroy(collision.gameObject);

@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "499231290100",
+    "firebase_url": "https://the-real-story.firebaseio.com",
+    "project_id": "the-real-story",
+    "storage_bucket": "the-real-story.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:499231290100:android:64e96623f2425de4",
+        "android_client_info": {
+          "package_name": "com.therealstory.android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "499231290100-9m4gipa6p15d4sqgp3fghc8jrq5r83k0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6NJ1vtiJG8fZHFit0F3FhK-gfG-5jIyU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
