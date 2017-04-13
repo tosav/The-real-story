@@ -1,13 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.Assertions;
+using GoogleMobileAds;
 using GoogleMobileAds.Api;
 
 public class GameManager : MonoBehaviour {
 
 	public static GameManager instance = null;
 
-   // private const string banner = "ca-app-pub-2129853974374124~3225831096";
+    private BannerView bannerView;
+    private const string banner = "ca-app-pub-2129853974374124/4702564299";
     private AppPaused pause;
 	void Awake() {
         if (instance == null)
@@ -26,12 +28,19 @@ public class GameManager : MonoBehaviour {
     }
 
     // Use this for initialization
-    void Start ()
-    {
-        /*BannerView bannerv = new BannerView(banner, AdSize.Banner, AdPosition.Bottom);
+    void Start() {
+
+        BannerView bannerView = new BannerView(banner, AdSize.Banner, AdPosition.Top);
         AdRequest request = new AdRequest.Builder().Build();
-        bannerv.LoadAd(request);*/
+        bannerView.LoadAd(request);
     }
+
+
+
+
+
+
+
 
 	public void PlayerCollided() {
         PlayerPrefs.SetInt("lives", PlayerPrefs.GetInt("lives")-1);

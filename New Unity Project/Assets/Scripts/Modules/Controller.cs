@@ -75,6 +75,7 @@ public class Controller : MonoBehaviour {
         {
             Destroy(GameObject.Find("cursor"));
             Destroy(GameObject.Find("attention"), GameObject.Find("attention").GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length + 1f);
+            Destroy(GameObject.Find("Arrows"), 3f);
         }
 
         if (Build[i])

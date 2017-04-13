@@ -8,25 +8,20 @@ public class EarthBut : MonoBehaviour {
     public GameObject Earth;
     private bool k=false;//true - возрастание; false - убывание
     private float i = 1;
-    private int time=10; 
+    private int time=10;
+    private void Awake()
+    {
+        PlayerPrefs.SetInt("level", 1);
+    }
     void FixedUpdate()
     {//тут будут модели для траектории движения и вохможность их комбинировать  и задать через заданные значения
-      
+        
         switch (Convert.ToInt32(SceneManager.GetActiveScene().name.Substring(5)))//это временно
         {
             case 1:
-                if (k)
-                {
                     i++;
                     if (i > 500)
-                        k = !k;
-                }
-                else
-                {
-                    i--;
-                    if (i < -500)
-                        k = !k;
-                }
+                        i = 1;
                 Earth.GetComponent<Transform>().Rotate(Vector3.forward * Time.deltaTime / time * i);
                 break;
             case 2:
@@ -126,6 +121,22 @@ public class EarthBut : MonoBehaviour {
                 Earth.GetComponent<Transform>().Rotate(Vector3.forward * Time.deltaTime * 200 * Convert.ToSingle(Math.Sin(Convert.ToDouble(i))));
                 break;
             case 8:
+                time = 20;
+                if (k)
+                {
+                    i += 0.01f;
+                    if (i > 3630)
+                        k = !k;
+                }
+                else
+                {
+                    i -= 0.01f;
+                    if (i < -3630)
+                        k = !k;
+                }
+                Earth.GetComponent<Transform>().Rotate(Vector3.forward * Time.deltaTime * 300 * Convert.ToSingle(Math.Sin(Convert.ToDouble(i))));
+                break;
+            case 9:
                 time = 20;
                 if (k)
                 {
