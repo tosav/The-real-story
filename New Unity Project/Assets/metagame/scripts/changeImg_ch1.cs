@@ -18,7 +18,7 @@ public class changeImg_ch1 : MonoBehaviour
     public GameObject prefab;
     public bool isPC;
     Color32 color;
-
+	string buy;
 
     void Start()
     {
@@ -63,25 +63,26 @@ public class changeImg_ch1 : MonoBehaviour
     {
 	  		ch=PlayerPrefs.GetInt("ch");
 			era=PlayerPrefs.GetInt("era");
+			buy=PlayerPrefs.GetString("buy1");
         
         if (Input.GetMouseButtonDown(2))//сброс сохранения
         {
             PlayerPrefs.DeleteAll();
             PlayerPrefs.Save();
         }
-       /* if (!isPC)
+        if (!isPC)
         { 
 
             Touch touch = Input.GetTouch(0);
             ray = Camera.main.ScreenPointToRay(touch.position);
             if( Input.touchCount > 0)
             {
-                if (Physics.Raycast(ray, out hit, 100) && hit.collider.gameObject == prefab)
+                if (Physics.Raycast(ray, out hit, 100) && hit.collider.gameObject)
                 {
                     if (Input.GetTouch(0).phase == TouchPhase.Began || Input.GetTouch(0).phase == TouchPhase.Moved)
                     {
                         Vector3 cameraTransform = Camera.main.transform.InverseTransformPoint(0, 0, 0);
-                        prefab.transform.position = Camera.main.ScreenToWorldPoint( new Vector3(touch.position.x, touch.position.y, cameraTransform.z));
+                        gameObject.transform.position = Camera.main.ScreenToWorldPoint( new Vector3(touch.position.x, touch.position.y, cameraTransform.z));
                     }
                 }
             }
@@ -93,18 +94,18 @@ public class changeImg_ch1 : MonoBehaviour
                 ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 if (Input.GetMouseButton(0))
                 {
-                    if (Physics.Raycast(ray, out hit, 100) && hit.collider.gameObject == prefab)
+                    if (Physics.Raycast(ray, out hit, 100) && hit.collider.gameObject)
                     {
                         Vector3 cameraTransform = Camera.main.transform.InverseTransformPoint(0, 0, 0);
-                    prefab.transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, cameraTransform.z));
+                    gameObject.transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, cameraTransform.z));
                     }
                 }
-        }  */  
+        }    
     }
 
     void FixedUpdate()
     {
-        if (ch == 4)//новая эра
+        if (ch == 4 && era<4)//новая эра
         {
             newEra();
             ChangeImg();
@@ -116,7 +117,7 @@ public class changeImg_ch1 : MonoBehaviour
     void OnMouseUp()
     {
  
-        if (vr == true && discount.buy == true && ch<=4 && era<=4)
+        if (vr == true  && ch<=4 && era<=4 && buy!="false")
         {
             ChangeColor();
             ch = ch + 1;

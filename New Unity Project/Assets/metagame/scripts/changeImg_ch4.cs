@@ -17,23 +17,14 @@ public class changeImg_ch4 : MonoBehaviour
     //  bool isTouched;
     public GameObject[] one;
     public GameObject prefab;
-   // string str_ch;
-   // string str_era;
     Color32 color;
+	string buy;
+
 
 
     void Start()
     {
 
-       // FileInfo f2 = new FileInfo("Assets/metagame/file/ch.txt");
-       // FileInfo f1 = new FileInfo("Assets/metagame/file/era.txt");
-        //----------------------------------------------------------
-
-       // p_ch();//считываем кол-во активных элементов
-      //  p_era();//считываем эру
-
-      //  era = Convert.ToInt32(str_era);
-       // ch = Convert.ToInt32(str_ch);
 	   if(PlayerPrefs.HasKey("ch")==true && PlayerPrefs.HasKey("era") ) 
 	   { 
 			ch=PlayerPrefs.GetInt("ch");
@@ -75,6 +66,7 @@ public class changeImg_ch4 : MonoBehaviour
     {
 	   		ch=PlayerPrefs.GetInt("ch");
 			era=PlayerPrefs.GetInt("era");
+			buy=PlayerPrefs.GetString("buy4");
         
         if (Input.GetMouseButtonDown(2))//сброс сохранения
         {
@@ -85,7 +77,7 @@ public class changeImg_ch4 : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (ch == 4)//новая эра
+        if (ch == 4 && era<4)//новая эра
         {
             newEra();
             ChangeImg();
@@ -96,7 +88,7 @@ public class changeImg_ch4 : MonoBehaviour
     void OnMouseUp()
     {
 
-        if (vr == true && discount.buy == true && ch<=4 && era<=4)
+        if (vr == true && ch<=4 && era<=4 && buy!="false")
         {
             ChangeColor();
             ch = ch + 1;

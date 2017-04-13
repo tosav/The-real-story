@@ -19,14 +19,15 @@ public class money : MonoBehaviour {
 		} 
 		else
 		{
-			PlayerPrefs.SetInt("money", 2000);
+			PlayerPrefs.SetInt("money", 100);
 			PlayerPrefs.Save();
 			money1=PlayerPrefs.GetInt("money");	
 		}
     }
 
-    void Update()
+    void FixedUpdate()
     {
+		money1=PlayerPrefs.GetInt("money");
 	    m = Convert.ToString(money1);
         gameObject.GetComponent<Text>().text = m;
 		

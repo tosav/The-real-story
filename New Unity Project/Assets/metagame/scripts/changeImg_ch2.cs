@@ -18,7 +18,7 @@ public class changeImg_ch2 : MonoBehaviour
     public GameObject prefab;
     public bool isPC;
     Color32 color;
-
+	string buy;
 
     void Start()
     {
@@ -63,6 +63,7 @@ public class changeImg_ch2 : MonoBehaviour
     {
 	  		ch=PlayerPrefs.GetInt("ch");
 			era=PlayerPrefs.GetInt("era");
+			buy=PlayerPrefs.GetString("buy2");
         
         if (Input.GetMouseButtonDown(2))//сброс сохранения
         {
@@ -104,7 +105,7 @@ public class changeImg_ch2 : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (ch == 4)//новая эра
+        if (ch == 4 && era<4)//новая эра
         {
             newEra();
             ChangeImg();
@@ -115,7 +116,7 @@ public class changeImg_ch2 : MonoBehaviour
     void OnMouseUp()
     {
  
-        if (vr == true && discount.buy == true && ch<=4 && era<=4)
+        if (vr == true  && ch<=4 && era<=4 && buy!="false")
         {
             ChangeColor();
             ch = ch + 1;
