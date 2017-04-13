@@ -151,6 +151,9 @@
     <Compile Include="Assets\chop.cs" />
     <Compile Include="Assets\meta.cs" />
     <Compile Include="Assets\metagame\scripts\NewBehaviourScript.cs" />
+    <Compile Include="Assets\metagame\scripts\back.cs" />
+    <Compile Include="Assets\metagame\scripts\backmain.cs" />
+    <Compile Include="Assets\metagame\scripts\backmenu.cs" />
     <Compile Include="Assets\metagame\scripts\camera.cs" />
     <Compile Include="Assets\metagame\scripts\changeImg_ch1.cs" />
     <Compile Include="Assets\metagame\scripts\changeImg_ch2.cs" />
@@ -159,7 +162,12 @@
     <Compile Include="Assets\metagame\scripts\clicker.cs" />
     <Compile Include="Assets\metagame\scripts\clicker_l.cs" />
     <Compile Include="Assets\metagame\scripts\discount.cs" />
+    <Compile Include="Assets\metagame\scripts\discount_ch1.cs" />
+    <Compile Include="Assets\metagame\scripts\discount_ch2.cs" />
+    <Compile Include="Assets\metagame\scripts\discount_ch3.cs" />
+    <Compile Include="Assets\metagame\scripts\discount_ch4.cs" />
     <Compile Include="Assets\metagame\scripts\gameover.cs" />
+    <Compile Include="Assets\metagame\scripts\hope.cs" />
     <Compile Include="Assets\metagame\scripts\money.cs" />
   </ItemGroup>
   <ItemGroup>
