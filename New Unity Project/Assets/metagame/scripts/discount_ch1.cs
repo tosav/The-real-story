@@ -5,7 +5,7 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class discount : MonoBehaviour {
+public class discount_ch1 : MonoBehaviour {
 
     public String[] money;
     Int32 era;
@@ -15,7 +15,7 @@ public class discount : MonoBehaviour {
     public GameObject textik;
 	int i=0;
 	string s;
-
+	
 
 	void Update ()
     {
@@ -30,25 +30,25 @@ public class discount : MonoBehaviour {
        if (era<=4) { ch_m = Convert.ToInt32(money[era]);}
 	   
 	   s=PlayerPrefs.GetString("save1");
-		
+	   v_sum = ob_m - ch_m;
+	   				if (v_sum<0){
+					PlayerPrefs.SetString("buy1", "false");}
+					else {PlayerPrefs.SetString("buy1", "true");}
+	   
     }
 
     void OnMouseUp()
     {
-        if (i<=4 && s!="true")
-		{
-				v_sum = ob_m - ch_m;
-        
+        if (i<=4 && s!="true" )
+		{		//v_sum = ob_m - ch_m;		
 				if (v_sum >= 0)
 				{
 					PlayerPrefs.SetInt("money",  v_sum);
 			
 				}
-				else
-				{
-					PlayerPrefs.SetInt("money", 0);
-				}
-				
+				//if (v_sum<0){
+				//PlayerPrefs.SetString("buy4", "false");
+		//}
 				i++;
 		}
 
