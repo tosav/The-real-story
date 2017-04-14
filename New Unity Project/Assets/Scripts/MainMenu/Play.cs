@@ -15,7 +15,6 @@ public class Play : MonoBehaviour
 	void Start()
 	{
 		source = GetComponent<AudioSource> ();
-        PlayerPrefs.DeleteAll();
     }
 
     private void OnMouseDown()
