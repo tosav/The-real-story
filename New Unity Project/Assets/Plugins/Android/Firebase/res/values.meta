@@ -1,7 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: f070e69ef0044854a87fca5685cdee94
 folderAsset: yes
 timeCreated: 1492074786
+=======
+guid: 4f166403f9e68e04a8e5d7b18aa9dc0b
+folderAsset: yes
+timeCreated: 1492084897
+>>>>>>> Перенос_на_level1
 licenseType: Free
 DefaultImporter:
   userData: 
