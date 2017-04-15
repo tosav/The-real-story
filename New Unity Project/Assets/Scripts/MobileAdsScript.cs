@@ -8,14 +8,7 @@ public class MobileAdsScript : MonoBehaviour
 {
     private BannerView bannerView;
     private InterstitialAd interstitial;
-    private NativeExpressAdView nativeExpressAdView;
     private RewardBasedVideoAd rewardBasedVideo;
-    private static string outputMessage = string.Empty;
-
-    public static string OutputMessage
-    {
-        set { outputMessage = value; }
-    }
 
     public void Start()
     {
@@ -71,7 +64,7 @@ public class MobileAdsScript : MonoBehaviour
 #endif
 
         // Create a 320x50 banner at the top of the screen.
-        this.bannerView = new BannerView(adUnitId, AdSize.SmartBanner, AdPosition.Top);
+        this.bannerView = new BannerView(adUnitId, AdSize.SmartBanner, AdPosition.Bottom);
 
         // Register for ad events.
         this.bannerView.OnAdLoaded += this.HandleAdLoaded;

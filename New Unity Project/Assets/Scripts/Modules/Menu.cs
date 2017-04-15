@@ -10,8 +10,6 @@ public class Menu : MonoBehaviour {
     public GameObject menubutton;
     private void OnMouseDown()
     {
-        MobileAdsScript scr = GameObject.FindGameObjectWithTag("Controller").GetComponent<MobileAdsScript>();
-        scr.DestroyInterstitial();
         GetComponent<AudioSource>().Play();
         GetComponent<AudioSource>().PlayOneShot(hit);
         menubutton.GetComponent<ScrollMenu>().speedY = -10f;

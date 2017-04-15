@@ -11,7 +11,6 @@ public class EarthBut : MonoBehaviour {
     private int time=10;
     private void Awake()
     {
-        PlayerPrefs.SetInt("level", 1);
     }
     void FixedUpdate()
     {//тут будут модели для траектории движения и вохможность их комбинировать  и задать через заданные значения

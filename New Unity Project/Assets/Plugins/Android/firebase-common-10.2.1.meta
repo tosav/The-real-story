@@ -1,16 +1,8 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
 guid: 1a24017b5f4d5724cabaae6d095824ad
 labels:
 - gpsr
 folderAsset: yes
-timeCreated: 1492062792
-=======
-guid: 888cfd083dfaea44c8bebe304316967c
-folderAsset: yes
-timeCreated: 1492084897
->>>>>>> Перенос_на_level1
-licenseType: Free
 PluginImporter:
   serializedVersion: 1
   iconMap: {}

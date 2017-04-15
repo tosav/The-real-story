@@ -88,8 +88,12 @@
     <Reference Include="Unity.Tasks">
       <HintPath>Assets\Firebase\Plugins\Unity.Tasks.dll</HintPath>
     </Reference>
+    <Reference Include="Firebase.Messaging">
+      <HintPath>Assets\Firebase\Plugins\Firebase.Messaging.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\CommonData.cs" />
     <Compile Include="Assets\GoogleMobileAds\Api\AdFailedToLoadEventArgs.cs" />
     <Compile Include="Assets\GoogleMobileAds\Api\AdLoader.cs" />
     <Compile Include="Assets\GoogleMobileAds\Api\AdPosition.cs" />
@@ -146,6 +150,7 @@
     <Compile Include="Assets\Scripts\Platformer2DUserControl.cs" />
     <Compile Include="Assets\Scripts\PlatformerCharacter2D.cs" />
     <Compile Include="Assets\Scripts\Restarter.cs" />
+    <Compile Include="Assets\StringConstants.cs" />
     <Compile Include="Assets\Teaching.cs" />
     <Compile Include="Assets\attack.cs" />
     <Compile Include="Assets\chop.cs" />
@@ -172,18 +177,31 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Firebase\Editor\FirebaseAnalytics.txt" />
+    <None Include="Assets\Firebase\Editor\FirebaseMessaging.txt" />
     <None Include="Assets\Firebase\Plugins\link.xml" />
     <None Include="Assets\Firebase\m2repository\com\google\firebase\firebase-analytics-unity\maven-metadata.xml" />
     <None Include="Assets\Firebase\m2repository\com\google\firebase\firebase-app-unity\maven-metadata.xml" />
+    <None Include="Assets\Firebase\m2repository\com\google\firebase\firebase-messaging-unity\maven-metadata.xml" />
     <None Include="Assets\PlayServicesResolver\Editor\play-services-resolver.txt" />
     <None Include="Assets\PlayServicesResolver\proguard-messaging-workaround.txt" />
     <None Include="Assets\PlayServicesResolver\proguard-unity.txt" />
+    <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
     <None Include="Assets\Plugins\Android\Firebase\AndroidManifest.xml" />
+    <None Include="Assets\Plugins\Android\Firebase\res\values\google-services.xml" />
     <None Include="Assets\Plugins\Android\GoogleMobileAdsPlugin\AndroidManifest.xml" />
+    <None Include="Assets\Plugins\Android\firebase-analytics-unity-3.0.1\AndroidManifest.xml" />
+    <None Include="Assets\Plugins\Android\firebase-analytics-unity-3.0.1\R.txt" />
+    <None Include="Assets\Plugins\Android\firebase-analytics-unity-3.0.1\proguard.txt" />
+    <None Include="Assets\Plugins\Android\firebase-app-unity-3.0.1\AndroidManifest.xml" />
+    <None Include="Assets\Plugins\Android\firebase-app-unity-3.0.1\R.txt" />
+    <None Include="Assets\Plugins\Android\firebase-app-unity-3.0.1\proguard.txt" />
     <None Include="Assets\Plugins\Android\firebase-common-10.2.1\AndroidManifest.xml" />
     <None Include="Assets\Plugins\Android\firebase-common-10.2.1\proguard.txt" />
     <None Include="Assets\Plugins\Android\firebase-iid-10.2.1\AndroidManifest.xml" />
     <None Include="Assets\Plugins\Android\firebase-iid-10.2.1\proguard.txt" />
+    <None Include="Assets\Plugins\Android\firebase-messaging-unity-3.0.1\AndroidManifest.xml" />
+    <None Include="Assets\Plugins\Android\firebase-messaging-unity-3.0.1\R.txt" />
+    <None Include="Assets\Plugins\Android\firebase-messaging-unity-3.0.1\proguard.txt" />
     <None Include="Assets\metagame\file\ch.txt" />
     <None Include="Assets\metagame\file\era.txt" />
     <None Include="Assets\metagame\file\money.txt" />

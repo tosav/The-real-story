@@ -1,14 +1,6 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
 guid: fa6671b037a44ee4baf09834f98f347a
 folderAsset: yes
-timeCreated: 1492061863
-=======
-guid: 3f3d4d2f179cef24585f1025b87853d1
-folderAsset: yes
-timeCreated: 1492084897
->>>>>>> Перенос_на_level1
-licenseType: Free
 PluginImporter:
   serializedVersion: 1
   iconMap: {}

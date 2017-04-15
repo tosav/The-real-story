@@ -7,7 +7,6 @@ using GoogleMobileAds.Api;
 public class GameManager : MonoBehaviour {
 
 	public static GameManager instance = null;
-    
     private AppPaused pause;
 	void Awake() {
         if (instance == null)
@@ -25,11 +24,8 @@ public class GameManager : MonoBehaviour {
             PlayerPrefs.SetInt("lives", 5);
 
     }
-
-    // Use this for initialization
-
-
-	public void PlayerCollided() {
+    
+    public void PlayerCollided() {
         PlayerPrefs.SetInt("lives", PlayerPrefs.GetInt("lives")-1);
     }
     void pauseGame()
