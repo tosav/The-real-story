@@ -9,6 +9,7 @@ public class MobileAdsScript : MonoBehaviour
     private BannerView bannerView;
     private InterstitialAd interstitial;
     private RewardBasedVideoAd rewardBasedVideo;
+    private AdRequest req;
 
     public void Start()
     {
@@ -39,15 +40,17 @@ public class MobileAdsScript : MonoBehaviour
     // Returns an ad request with custom ad targeting.
     private AdRequest CreateAdRequest()
     {
-        return new AdRequest.Builder()
-            .AddTestDevice(AdRequest.TestDeviceSimulator)
-            .AddTestDevice("374A3CA9CC52D311")
-            .AddKeyword("game")
-            .SetGender(Gender.Male)
-            .SetBirthday(new DateTime(1985, 1, 1))
-            .TagForChildDirectedTreatment(false)
-            .AddExtra("color_bg", "9B30FF")
-            .Build();
+        if (req == null)
+        {
+            req= new AdRequest.Builder()
+                .AddTestDevice(AdRequest.TestDeviceSimulator)
+                .AddTestDevice("374A3CA9CC52D311")
+                .AddKeyword("game")
+                .TagForChildDirectedTreatment(true)
+                .AddExtra("color_bg", "9B30FF")
+                .Build();
+        }
+        return req;
     }
 
     public void RequestBanner()

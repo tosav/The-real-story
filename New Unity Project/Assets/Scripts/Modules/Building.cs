@@ -29,31 +29,38 @@ public class Building : MonoBehaviour
         if (GameObject.FindGameObjectWithTag("Planet"))
             GetComponent<Rigidbody2D>().AddForce((GameObject.FindGameObjectWithTag("Planet").transform.position - transform.position).normalized * gravity);
     }
+    private void fixi(Collision2D collision)
+    {
+        fix = gameObject.AddComponent<FixedJoint2D>();
+        fix.connectedBody = collision.gameObject.GetComponent<Rigidbody2D>();
+        fix.autoConfigureConnectedAnchor = false;
+    }
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (repeat.GetComponent<ScrollMenu>().speedY != 10)
         {
-            fix = gameObject.AddComponent<FixedJoint2D>();
-            fix.connectedBody = collision.gameObject.GetComponent<Rigidbody2D>();
-            fix.autoConfigureConnectedAnchor = false;
-
             if (collision.gameObject.CompareTag("Planet")) {
+                fixi(collision);
 				if (c)
 					c.State();
             }
+            else if(collision.gameObject.CompareTag("Coin"))
+            {
+                Destroy(collision.gameObject);
+                PlayerPrefs.SetInt("coin", PlayerPrefs.GetInt("coin") + 1);
+            } 
             else if (collision.gameObject.CompareTag("Building"))
             {
                 repeat.GetComponent<ScrollMenu>().speedY = 10;
-                MobileAdsScript scr= c.GetComponent<MobileAdsScript>();
-                scr.RequestInterstitial();
-                scr.ShowInterstitial();
                 bom = Instantiate(boom);
 				bom.GetComponent<Transform>().position = transform.position;
                 Destroy(gameObject);
                 Destroy(collision.gameObject);
                 Destroy(bom, bom.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length + 1f);
                 GameManager.instance.PlayerCollided();
-
+                MobileAdsScript scr = c.GetComponent<MobileAdsScript>();
+                scr.RequestInterstitial();
+                scr.ShowInterstitial();
             }
         }
 

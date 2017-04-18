@@ -7,8 +7,6 @@ using UnityEngine.SceneManagement;
 using Firebase;
 using Firebase.Analytics;
 
-using Firebase.Unity.Editor;
-
 public class Controller : MonoBehaviour {
     public GameObject Building;
     public GameObject Bul;
@@ -142,7 +140,7 @@ public class Controller : MonoBehaviour {
         Firebase.AppOptions ops = new Firebase.AppOptions();
         CommonData.app = Firebase.FirebaseApp.Create(ops);
 
-        Screen.orientation = ScreenOrientation.Landscape;
+        Screen.orientation = ScreenOrientation.Portrait;
         
 
         // Set up volume settings.

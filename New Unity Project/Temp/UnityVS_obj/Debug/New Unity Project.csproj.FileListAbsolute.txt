@@ -1,0 +1,27 @@
+C:\Users\Саргылаана\Desktop\The-real-story\New Unity Project\Temp\UnityVS_bin\Debug\Assembly-CSharp.dll
+C:\Users\Саргылаана\Desktop\The-real-story\New Unity Project\Temp\UnityVS_bin\Debug\Assembly-CSharp.pdb
+C:\Users\Саргылаана\Desktop\The-real-story\New Unity Project\Temp\UnityVS_bin\Debug\Firebase.Analytics.dll
+C:\Users\Саргылаана\Desktop\The-real-story\New Unity Project\Temp\UnityVS_bin\Debug\Firebase.App.dll
+C:\Users\Саргылаана\Desktop\The-real-story\New Unity Project\Temp\UnityVS_bin\Debug\Firebase.Messaging.dll
+C:\Users\Саргылаана\Desktop\The-real-story\New Unity Project\Temp\UnityVS_bin\Debug\Google.MiniJson.dll
+C:\Users\Саргылаана\Desktop\The-real-story\New Unity Project\Temp\UnityVS_bin\Debug\Unity.Compat.dll
+C:\Users\Саргылаана\Desktop\The-real-story\New Unity Project\Temp\UnityVS_bin\Debug\Unity.Tasks.dll
+C:\Users\Саргылаана\Desktop\The-real-story\New Unity Project\Temp\UnityVS_bin\Debug\UnityEditor.dll
+C:\Users\Саргылаана\Desktop\The-real-story\New Unity Project\Temp\UnityVS_bin\Debug\UnityEngine.Analytics.dll
+C:\Users\Саргылаана\Desktop\The-real-story\New Unity Project\Temp\UnityVS_bin\Debug\UnityEngine.dll
+C:\Users\Саргылаана\Desktop\The-real-story\New Unity Project\Temp\UnityVS_bin\Debug\UnityEngine.HoloLens.dll
+C:\Users\Саргылаана\Desktop\The-real-story\New Unity Project\Temp\UnityVS_bin\Debug\UnityEngine.Networking.dll
+C:\Users\Саргылаана\Desktop\The-real-story\New Unity Project\Temp\UnityVS_bin\Debug\UnityEngine.PlaymodeTestsRunner.dll
+C:\Users\Саргылаана\Desktop\The-real-story\New Unity Project\Temp\UnityVS_bin\Debug\UnityEngine.UI.dll
+C:\Users\Саргылаана\Desktop\The-real-story\New Unity Project\Temp\UnityVS_bin\Debug\UnityEngine.VR.dll
+C:\Users\Саргылаана\Desktop\The-real-story\New Unity Project\Temp\UnityVS_bin\Debug\UnityEngine.xml
+C:\Users\Саргылаана\Desktop\The-real-story\New Unity Project\Temp\UnityVS_bin\Debug\UnityEngine.UI.xml
+C:\Users\Саргылаана\Desktop\The-real-story\New Unity Project\Temp\UnityVS_bin\Debug\UnityEngine.Networking.xml
+C:\Users\Саргылаана\Desktop\The-real-story\New Unity Project\Temp\UnityVS_bin\Debug\UnityEngine.PlaymodeTestsRunner.xml
+C:\Users\Саргылаана\Desktop\The-real-story\New Unity Project\Temp\UnityVS_bin\Debug\UnityEngine.Analytics.xml
+C:\Users\Саргылаана\Desktop\The-real-story\New Unity Project\Temp\UnityVS_bin\Debug\UnityEngine.HoloLens.xml
+C:\Users\Саргылаана\Desktop\The-real-story\New Unity Project\Temp\UnityVS_bin\Debug\UnityEngine.VR.xml
+C:\Users\Саргылаана\Desktop\The-real-story\New Unity Project\Temp\UnityVS_bin\Debug\UnityEditor.xml
+C:\Users\Саргылаана\Desktop\The-real-story\New Unity Project\Temp\UnityVS_obj\Debug\New Unity Project.csprojResolveAssemblyReference.cache
+C:\Users\Саргылаана\Desktop\The-real-story\New Unity Project\Temp\UnityVS_obj\Debug\Assembly-CSharp.dll
+C:\Users\Саргылаана\Desktop\The-real-story\New Unity Project\Temp\UnityVS_obj\Debug\Assembly-CSharp.pdb

@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+  <string name="firebase_database_url" translatable="false">https://the-real-story.firebaseio.com</string>
+  <string name="gcm_defaultSenderId" translatable="false">499231290100</string>
+  <string name="google_storage_bucket" translatable="false">the-real-story.appspot.com</string>
+  <string name="google_api_key" translatable="false">AIzaSyB6NJ1vtiJG8fZHFit0F3FhK-gfG-5jIyU</string>
+  <string name="google_crash_reporting_api_key" translatable="false">AIzaSyB6NJ1vtiJG8fZHFit0F3FhK-gfG-5jIyU</string>
+  <string name="google_app_id" translatable="false">1:499231290100:android:64e96623f2425de4</string>
+  <string name="default_web_client_id" translatable="false">499231290100-9m4gipa6p15d4sqgp3fghc8jrq5r83k0.apps.googleusercontent.com</string>
+</resources>
