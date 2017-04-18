@@ -24,7 +24,6 @@ public class MobileAdsScript : MonoBehaviour
         this.rewardBasedVideo.OnAdRewarded += this.HandleRewardBasedVideoRewarded;
         this.rewardBasedVideo.OnAdClosed += this.HandleRewardBasedVideoClosed;
         this.rewardBasedVideo.OnAdLeavingApplication += this.HandleRewardBasedVideoLeftApplication;
-        RequestBanner();
     }
 
     public void DestroyBannerRect()
@@ -43,8 +42,8 @@ public class MobileAdsScript : MonoBehaviour
         if (req == null)
         {
             req= new AdRequest.Builder()
-                .AddTestDevice(AdRequest.TestDeviceSimulator)
-                .AddTestDevice("374A3CA9CC52D311")
+               /* .AddTestDevice(AdRequest.TestDeviceSimulator)
+                .AddTestDevice("374A3CA9CC52D311")*/
                 .AddKeyword("game")
                 .TagForChildDirectedTreatment(true)
                 .AddExtra("color_bg", "9B30FF")
