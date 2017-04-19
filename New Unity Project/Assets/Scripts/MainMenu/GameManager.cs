@@ -22,7 +22,8 @@ public class GameManager : MonoBehaviour {
             PlayerPrefs.SetInt("coin", 5);
         if (!PlayerPrefs.HasKey("lives"))
             PlayerPrefs.SetInt("lives", 5);
-
+        if (!PlayerPrefs.HasKey("attempt"))
+            PlayerPrefs.SetInt("attempt", 0);
     }
     
     public void PlayerCollided() {

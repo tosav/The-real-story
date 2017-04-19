@@ -75,6 +75,14 @@ public class Controller : MonoBehaviour {
 
     private void Start()
     {
+        Firebase.Analytics.Parameter[] LevelStartParameters = {
+  new Firebase.Analytics.Parameter(
+    Firebase.Analytics.FirebaseAnalytics.ParameterLevel, PlayerPrefs.GetInt("level")),
+  new Firebase.Analytics.Parameter("dateStart", DateTime.Now.ToString()),
+  new Firebase.Analytics.Parameter("NumAttempt", PlayerPrefs.GetInt("attempt"))
+};
+        Firebase.Analytics.FirebaseAnalytics
+          .LogEvent("LevelStart", LevelStartParameters);
         InitializeFirebaseAndStart();
     }
     void InitializeFirebaseAndStart()
@@ -204,13 +212,32 @@ public class Controller : MonoBehaviour {
         text.GetComponent<Text>().text = count.ToString();
         if (count == 0)
         {
+
+            Firebase.Analytics.Parameter[] LevelPassParameters = {
+            new Firebase.Analytics.Parameter(
+            Firebase.Analytics.FirebaseAnalytics.ParameterLevel, PlayerPrefs.GetInt("level")),
+            new Firebase.Analytics.Parameter("dateEnd", DateTime.Now.ToString()),
+            new Firebase.Analytics.Parameter("NumAttempt", PlayerPrefs.GetInt("attempt"))
+            };
+            Firebase.Analytics.FirebaseAnalytics
+              .LogEvent("LevelPassed", LevelPassParameters);
             PlayerPrefs.SetInt("level", PlayerPrefs.GetInt("level") + 1);
             Building.GetComponent<Building>().repeat.GetComponent<ScrollMenu>().speedY = 10f;
             Building.GetComponent<Building>().next.GetComponent<ScrollMenu>().speedY = 10f;
         }
         else if (count>0)
         {
+
+            Firebase.Analytics.Parameter[] LevelPassParameters = {
+            new Firebase.Analytics.Parameter(
+            Firebase.Analytics.FirebaseAnalytics.ParameterLevel, PlayerPrefs.GetInt("level")),
+            new Firebase.Analytics.Parameter("dateOver", DateTime.Now.ToString()),
+            new Firebase.Analytics.Parameter("NumAttempt", PlayerPrefs.GetInt("attempt"))
+            };
+            Firebase.Analytics.FirebaseAnalytics
+              .LogEvent("LevelOver", LevelPassParameters);
             GameObject gm = Instantiate(Bul);
+            PlayerPrefs.SetInt("attempt", PlayerPrefs.GetInt("attempt")+1);
             Build.Add(gm);
             Build[i + 1].GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
             Build[i + 1].GetComponent<Building>().i = (i + 1)% Build[i + 1].GetComponent<Building>().buildings.Length;
