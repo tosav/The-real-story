@@ -6,11 +6,6 @@ public class monet : MonoBehaviour {
 
     public float gravity = 0;
     private FixedJoint2D fix;
-    private Controller c;
-    void Start()
-    {
-         c = GameObject.FindGameObjectWithTag("Controller").GetComponent<Controller>();
-    }
     void FixedUpdate()
     {
         if (GameObject.FindGameObjectWithTag("Planet"))

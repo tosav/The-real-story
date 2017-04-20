@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -51,6 +52,15 @@ public class Building : MonoBehaviour
             } 
             else if (collision.gameObject.CompareTag("Building"))
             {
+                Firebase.Analytics.Parameter[] LevelPassParameters = {
+            new Firebase.Analytics.Parameter(
+            Firebase.Analytics.FirebaseAnalytics.ParameterLevel, PlayerPrefs.GetInt("level")),
+            new Firebase.Analytics.Parameter("dateOver", DateTime.Now.ToString()),
+            new Firebase.Analytics.Parameter("NumAttempt", PlayerPrefs.GetInt("attempt"))
+            };
+                Firebase.Analytics.FirebaseAnalytics
+                  .LogEvent("LevelOver", LevelPassParameters);
+                PlayerPrefs.SetInt("attempt", PlayerPrefs.GetInt("attempt") + 1);
                 repeat.GetComponent<ScrollMenu>().speedY = 10;
                 bom = Instantiate(boom);
 				bom.GetComponent<Transform>().position = transform.position;

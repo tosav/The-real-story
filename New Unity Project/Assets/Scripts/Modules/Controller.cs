@@ -46,13 +46,6 @@ public class Controller : MonoBehaviour {
         AudioListener.volume = (float)soundFxVolume / MaxVolumeValue;
       }
     }
-
-    public int BuildCount
-    {
-        get { return count; }
-
-        set { count=value; }
-    }
     private void Awake()
     {
         Build = new List<GameObject>();
@@ -72,15 +65,13 @@ public class Controller : MonoBehaviour {
         count++;
         text.GetComponent<Text>().text = count.ToString();
     }
-
     private void Start()
     {
         Firebase.Analytics.Parameter[] LevelStartParameters = {
-  new Firebase.Analytics.Parameter(
-    Firebase.Analytics.FirebaseAnalytics.ParameterLevel, PlayerPrefs.GetInt("level")),
-  new Firebase.Analytics.Parameter("dateStart", DateTime.Now.ToString()),
-  new Firebase.Analytics.Parameter("NumAttempt", PlayerPrefs.GetInt("attempt"))
-};
+        new Firebase.Analytics.Parameter(Firebase.Analytics.FirebaseAnalytics.ParameterLevel, Convert.ToInt32(SceneManager.GetActiveScene().name.Substring(5))),
+        new Firebase.Analytics.Parameter("dateStart", DateTime.Now.ToString()),
+        new Firebase.Analytics.Parameter("NumAttempt", PlayerPrefs.GetInt("attempt"))
+        };
         Firebase.Analytics.FirebaseAnalytics
           .LogEvent("LevelStart", LevelStartParameters);
         InitializeFirebaseAndStart();
@@ -139,7 +130,7 @@ public class Controller : MonoBehaviour {
         // TODO(ccornell): replace this with a real user token
         // once Auth gets hooked up.
         // Set the user ID.
-        FirebaseAnalytics.SetUserId("desktop_user");
+        FirebaseAnalytics.SetUserId("user");
     }
     void StartGame()
     {
@@ -158,86 +149,27 @@ public class Controller : MonoBehaviour {
         SoundFxVolume = PlayerPrefs.GetInt(StringConstants.SoundFxVolume, MaxVolumeValue);
         
     }
-    void InitializeFirebase()
-    {
-        FirebaseAnalytics.SetAnalyticsCollectionEnabled(true);
-
-        // Set the user's sign up method.
-        FirebaseAnalytics.SetUserProperty( FirebaseAnalytics.UserPropertySignUpMethod, "Google"); //инициализация с поомщью гугла
-        // Set the user ID.
-        FirebaseAnalytics.SetUserId("1");
-    }
-    public void OnTokenReceived(object sender, Firebase.Messaging.TokenReceivedEventArgs token)
-    {
-        Debug.Log("Received Registration Token: " +token.Token);
-    }
-
-    public void OnMessageReceived(object sender, Firebase.Messaging.MessageReceivedEventArgs e)
-    {
-        Debug.Log("Received a new message from: " +e.Message.From);
-    }
-    public void AnaliticsAPP_OPEN()
-    {
-
-    }
-    public void AnalyticsLogin()
-    {
-        // Log an event with no parameters.
-        FirebaseAnalytics.LogEvent(FirebaseAnalytics.EventLogin);
-    }
-
-    public void AnalyticsProgress()
-    {
-        // Log an event with a float.
-        FirebaseAnalytics.LogEvent("progress", "percent", 0.4f);
-    }
-
-    public void AnalyticsScore()
-    {
-        // Log an event with an int parameter.
-        FirebaseAnalytics.LogEvent(FirebaseAnalytics.EventPostScore, FirebaseAnalytics.ParameterScore, 42);
-    }
-    public void AnaliticsLevelEnd()
-    {
-
-    }
-    public void AnalyticsLevelUp()
-    {
-        PlayerPrefs.SetInt("level", Convert.ToInt32(SceneManager.GetActiveScene().name.Substring(5)) + 1);
-        FirebaseAnalytics.LogEvent( FirebaseAnalytics.EventLevelUp, new Parameter(FirebaseAnalytics.ParameterLevel, PlayerPrefs.GetInt("level")));
-    }
     public void State()
     {
         count--;
         text.GetComponent<Text>().text = count.ToString();
         if (count == 0)
         {
-
+            Building.GetComponent<Building>().repeat.GetComponent<ScrollMenu>().speedY = 10f;
+            Building.GetComponent<Building>().next.GetComponent<ScrollMenu>().speedY = 10f;
             Firebase.Analytics.Parameter[] LevelPassParameters = {
             new Firebase.Analytics.Parameter(
-            Firebase.Analytics.FirebaseAnalytics.ParameterLevel, PlayerPrefs.GetInt("level")),
+            Firebase.Analytics.FirebaseAnalytics.ParameterLevel, Convert.ToInt32(SceneManager.GetActiveScene().name.Substring(5))),
             new Firebase.Analytics.Parameter("dateEnd", DateTime.Now.ToString()),
             new Firebase.Analytics.Parameter("NumAttempt", PlayerPrefs.GetInt("attempt"))
             };
             Firebase.Analytics.FirebaseAnalytics
               .LogEvent("LevelPassed", LevelPassParameters);
-            PlayerPrefs.SetInt("level", PlayerPrefs.GetInt("level") + 1);
-            Building.GetComponent<Building>().repeat.GetComponent<ScrollMenu>().speedY = 10f;
-            Building.GetComponent<Building>().next.GetComponent<ScrollMenu>().speedY = 10f;
+            PlayerPrefs.SetInt("level", Convert.ToInt32(SceneManager.GetActiveScene().name.Substring(5)) + 1);
         }
         else if (count>0)
         {
-
-            Firebase.Analytics.Parameter[] LevelPassParameters = {
-            new Firebase.Analytics.Parameter(
-            Firebase.Analytics.FirebaseAnalytics.ParameterLevel, PlayerPrefs.GetInt("level")),
-            new Firebase.Analytics.Parameter("dateOver", DateTime.Now.ToString()),
-            new Firebase.Analytics.Parameter("NumAttempt", PlayerPrefs.GetInt("attempt"))
-            };
-            Firebase.Analytics.FirebaseAnalytics
-              .LogEvent("LevelOver", LevelPassParameters);
             GameObject gm = Instantiate(Bul);
-            PlayerPrefs.SetInt("attempt", PlayerPrefs.GetInt("attempt")+1);
             Build.Add(gm);
             Build[i + 1].GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
             Build[i + 1].GetComponent<Building>().i = (i + 1)% Build[i + 1].GetComponent<Building>().buildings.Length;
@@ -280,4 +212,15 @@ public class Controller : MonoBehaviour {
             }
         }
 	}
+    void OnApplicationQuit()
+    {
+        Firebase.Analytics.Parameter[] LevelPassParameters = {
+            new Firebase.Analytics.Parameter(
+            Firebase.Analytics.FirebaseAnalytics.ParameterLevel, Convert.ToInt32(SceneManager.GetActiveScene().name.Substring(5))),
+            new Firebase.Analytics.Parameter("dateClosed", DateTime.Now.ToString()),
+            new Firebase.Analytics.Parameter("timeClosed", Time.realtimeSinceStartup)
+            };
+        Firebase.Analytics.FirebaseAnalytics
+          .LogEvent("AppClosed", LevelPassParameters);
+    }
 }

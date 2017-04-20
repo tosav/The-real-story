@@ -41,11 +41,7 @@ public class MobileAdsScript : MonoBehaviour
     {
         if (req == null)
         {
-            req= new AdRequest.Builder()
-                .AddKeyword("game")
-                .TagForChildDirectedTreatment(true)
-                .AddExtra("color_bg", "9B30FF")
-                .Build();
+            req= new AdRequest.Builder().Build();
         }
         return req;
     }
