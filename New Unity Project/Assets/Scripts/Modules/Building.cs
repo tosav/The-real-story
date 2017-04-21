@@ -13,6 +13,7 @@ public class Building : MonoBehaviour
     public GameObject boom;
     public int i = 0;
 	public Controller c;
+    public GameObject back;
 	private GameObject bom;
     public float gravity=0;
     void Start()
@@ -24,6 +25,7 @@ public class Building : MonoBehaviour
             Destroy(gameObject.GetComponent<PolygonCollider2D>());
         gameObject.AddComponent<PolygonCollider2D>();
         c = GameObject.FindGameObjectWithTag("Controller").GetComponent<Controller>();
+        back = GameObject.FindGameObjectWithTag("Back");
     }
     void FixedUpdate()
     {
@@ -68,7 +70,7 @@ public class Building : MonoBehaviour
                 Destroy(collision.gameObject);
                 Destroy(bom, bom.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length + 1f);
                 GameManager.instance.PlayerCollided();
-                MobileAdsScript scr = c.GetComponent<MobileAdsScript>();
+                MobileAdsScript scr = back.GetComponent<MobileAdsScript>();
                 scr.RequestInterstitial();
                 scr.ShowInterstitial();
             }

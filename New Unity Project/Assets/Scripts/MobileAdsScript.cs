@@ -9,8 +9,9 @@ public class MobileAdsScript : MonoBehaviour
     private BannerView bannerView;
     private InterstitialAd interstitial;
     private RewardBasedVideoAd rewardBasedVideo;
-    private AdRequest req;
-
+    private void Awake()
+    {
+    } 
     public void Start()
     {
         // Get singleton reward based video ad reference.
@@ -39,28 +40,22 @@ public class MobileAdsScript : MonoBehaviour
     // Returns an ad request with custom ad targeting.
     private AdRequest CreateAdRequest()
     {
-        if (req == null)
-        {
-            req= new AdRequest.Builder().Build();
-        }
+        AndroidJavaClass up = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
+        AndroidJavaObject currentActivity = up.GetStatic<AndroidJavaObject>("currentActivity");
+        AndroidJavaObject contentResolver = currentActivity.Call<AndroidJavaObject>("getContentResolver");
+        AndroidJavaClass secure = new AndroidJavaClass("android.provider.Settings$Secure");
+        string android_id = secure.CallStatic<string>("getString", contentResolver, "android_id");
+        AdRequest req = new AdRequest.Builder()
+                .AddTestDevice(android_id)
+                //.AddTestDevice(AdRequest.TestDeviceSimulator)
+                .Build();
         return req;
     }
 
     public void RequestBanner()
     {
-        // These ad units are configured to always serve test ads.
-        #if UNITY_EDITOR
-        string adUnitId = "unused";
-#elif UNITY_ANDROID
-        string adUnitId = "ca-app-pub-2129853974374124/4702564299";
-#elif UNITY_IPHONE
-        string adUnitId = "ca-app-pub-3940256099942544/2934735716";
-#else
-        string adUnitId = "unexpected_platform";
-#endif
-
         // Create a 320x50 banner at the top of the screen.
-        this.bannerView = new BannerView(adUnitId, AdSize.SmartBanner, AdPosition.Bottom);
+        this.bannerView = new BannerView("ca-app-pub-2129853974374124/4702564299", AdSize.SmartBanner, AdPosition.Bottom);
 
         // Register for ad events.
         this.bannerView.OnAdLoaded += this.HandleAdLoaded;
@@ -70,24 +65,13 @@ public class MobileAdsScript : MonoBehaviour
         this.bannerView.OnAdLeavingApplication += this.HandleAdLeftApplication;
 
         // Load a banner ad.
-        this.bannerView.LoadAd(this.CreateAdRequest());
+        this.bannerView.LoadAd(CreateAdRequest());
     }
 
     public void RequestInterstitial()
     {
-        // These ad units are configured to always serve test ads.
-        #if UNITY_EDITOR
-        string adUnitId = "unused";
-#elif UNITY_ANDROID
-        string adUnitId = "ca-app-pub-2129853974374124/6509833890";
-#elif UNITY_IPHONE
-        string adUnitId = "ca-app-pub-3940256099942544/4411468910";
-#else
-        string adUnitId = "unexpected_platform";
-#endif
-
         // Create an interstitial.
-        this.interstitial = new InterstitialAd(adUnitId);
+        this.interstitial = new InterstitialAd("ca-app-pub-2129853974374124/6509833890");
 
         // Register for ad events.
         this.interstitial.OnAdLoaded += this.HandleInterstitialLoaded;
@@ -97,22 +81,12 @@ public class MobileAdsScript : MonoBehaviour
         this.interstitial.OnAdLeavingApplication += this.HandleInterstitialLeftApplication;
 
         // Load an interstitial ad.
-        this.interstitial.LoadAd(this.CreateAdRequest());
+        this.interstitial.LoadAd(CreateAdRequest());
     }
 
     public void RequestRewardBasedVideo()
     {
-        #if UNITY_EDITOR
-        string adUnitId = "unused";
-#elif UNITY_ANDROID
-        string adUnitId = "ca-app-pub-2129853974374124/1940033493";
-#elif UNITY_IPHONE
-        string adUnitId = "ca-app-pub-3940256099942544/1712485313";
-#else
-        string adUnitId = "unexpected_platform";
-#endif
-
-        this.rewardBasedVideo.LoadAd(this.CreateAdRequest(), adUnitId);
+        this.rewardBasedVideo.LoadAd(CreateAdRequest(), "ca-app-pub-2129853974374124/1940033493");
     }
 
     public void ShowInterstitial()

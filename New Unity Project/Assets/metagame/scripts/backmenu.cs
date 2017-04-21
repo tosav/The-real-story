@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 public class backmenu : MonoBehaviour {
     private void Awake()
     {
-        Controller c = GameObject.FindGameObjectWithTag("Controller").GetComponent<Controller>();
-        MobileAdsScript scr = c.GetComponent<MobileAdsScript>();
+        GameObject back = GameObject.FindGameObjectWithTag("Back");
+        MobileAdsScript scr = back.GetComponent<MobileAdsScript>();
         scr.DestroyBannerRect();
     }
 	void OnMouseUp()

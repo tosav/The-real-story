@@ -13,9 +13,6 @@ public class Play : MonoBehaviour
 	AudioSource source;
     void Awake()
     {
-        Controller c = GameObject.FindGameObjectWithTag("Controller").GetComponent<Controller>();
-        MobileAdsScript scr = c.GetComponent<MobileAdsScript>();
-        scr.RequestBanner();
     }
     void Start()
 	{
