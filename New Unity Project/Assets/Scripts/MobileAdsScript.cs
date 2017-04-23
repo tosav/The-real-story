@@ -9,9 +9,6 @@ public class MobileAdsScript : MonoBehaviour
     private BannerView bannerView;
     private InterstitialAd interstitial;
     private RewardBasedVideoAd rewardBasedVideo;
-    private void Awake()
-    {
-    } 
     public void Start()
     {
         // Get singleton reward based video ad reference.
@@ -40,7 +37,7 @@ public class MobileAdsScript : MonoBehaviour
     // Returns an ad request with custom ad targeting.
     private AdRequest CreateAdRequest()
     {
-        AndroidJavaClass up = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
+        AndroidJavaClass up = new AndroidJavaClass("com.therealstory.android");
         AndroidJavaObject currentActivity = up.GetStatic<AndroidJavaObject>("currentActivity");
         AndroidJavaObject contentResolver = currentActivity.Call<AndroidJavaObject>("getContentResolver");
         AndroidJavaClass secure = new AndroidJavaClass("android.provider.Settings$Secure");

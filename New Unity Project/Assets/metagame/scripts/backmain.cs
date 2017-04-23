@@ -4,7 +4,15 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class backmain : MonoBehaviour {
-	void OnMouseUp()
+
+    private void Awake()
+    {
+        GameObject back = GameObject.FindGameObjectWithTag("Back");
+        print("here");
+        MobileAdsScript scr = back.GetComponent<MobileAdsScript>();
+        scr.DestroyBannerRect();
+    }
+    void OnMouseUp()
 	{
 	 SceneManager.LoadScene("main");
 	}

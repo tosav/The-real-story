@@ -17,34 +17,56 @@ public class Controller : MonoBehaviour {
 	public float delayTimer= 2000f;
     public int count=4;
 	float timer;
-
     public const int MaxVolumeValue = 6;
     private int musicVolume = 0;
-    public int MusicVolume {
-      get {
-        return musicVolume;
-      }
-      set {
-        musicVolume = value;
-        PlayerPrefs.SetInt(StringConstants.MusicVolume, musicVolume);
-        // Music volume is controlled on the music source, which is set to
-        // ignore the volume settings of the listener.
-        Controller c = GameObject.FindGameObjectWithTag("Controller").GetComponent<Controller>();
-        c.GetComponentInChildren<AudioSource>().volume = (float)musicVolume / MaxVolumeValue;
-      }
+    public int MusicVolume
+    {
+        get
+        {
+            return musicVolume;
+        }
+        set
+        {
+            musicVolume = value;
+            PlayerPrefs.SetInt(StringConstants.MusicVolume, musicVolume);
+            // Music volume is controlled on the music source, which is set to
+            // ignore the volume settings of the listener.
+            Controller c = GameObject.FindGameObjectWithTag("Controller").GetComponent<Controller>();
+            c.GetComponentInChildren<AudioSource>().volume = (float)musicVolume / MaxVolumeValue;
+        }
     }
     private int soundFxVolume = 0;
-    public int SoundFxVolume {
-      get {
-        return soundFxVolume;
-      }
-      set {
-        soundFxVolume = value;
-        PlayerPrefs.SetInt(StringConstants.SoundFxVolume, soundFxVolume);
-        // Sound effect volumes are controlled by setting the listeners volume,
-        // instead of each effect individually.
-        AudioListener.volume = (float)soundFxVolume / MaxVolumeValue;
-      }
+    public int SoundFxVolume
+    {
+        get
+        {
+            return soundFxVolume;
+        }
+        set
+        {
+            soundFxVolume = value;
+            PlayerPrefs.SetInt(StringConstants.SoundFxVolume, soundFxVolume);
+            // Sound effect volumes are controlled by setting the listeners volume,
+            // instead of each effect individually.
+            AudioListener.volume = (float)soundFxVolume / MaxVolumeValue;
+        }
+    }
+    void StartGame()
+    {
+        // Remote Config data has been fetched, so this applies it for this play session:
+
+        Firebase.AppOptions ops = new Firebase.AppOptions();
+        CommonData.app = Firebase.FirebaseApp.Create(ops);
+
+        Screen.orientation = ScreenOrientation.Portrait;
+
+
+        // Set up volume settings.
+        MusicVolume = PlayerPrefs.GetInt(StringConstants.MusicVolume, MaxVolumeValue);
+        // Set the music to ignore the listeners volume, which is used for sound effects.
+        CommonData.mainCamera.GetComponentInChildren<AudioSource>().ignoreListenerVolume = true;
+        SoundFxVolume = PlayerPrefs.GetInt(StringConstants.SoundFxVolume, MaxVolumeValue);
+
     }
     private void Awake()
     {
@@ -131,23 +153,6 @@ public class Controller : MonoBehaviour {
         // once Auth gets hooked up.
         // Set the user ID.
         FirebaseAnalytics.SetUserId("user");
-    }
-    void StartGame()
-    {
-        // Remote Config data has been fetched, so this applies it for this play session:
-        
-        Firebase.AppOptions ops = new Firebase.AppOptions();
-        CommonData.app = Firebase.FirebaseApp.Create(ops);
-
-        Screen.orientation = ScreenOrientation.Portrait;
-        
-
-        // Set up volume settings.
-        MusicVolume = PlayerPrefs.GetInt(StringConstants.MusicVolume, MaxVolumeValue);
-        // Set the music to ignore the listeners volume, which is used for sound effects.
-        CommonData.mainCamera.GetComponentInChildren<AudioSource>().ignoreListenerVolume = true;
-        SoundFxVolume = PlayerPrefs.GetInt(StringConstants.SoundFxVolume, MaxVolumeValue);
-        
     }
     public void State()
     {

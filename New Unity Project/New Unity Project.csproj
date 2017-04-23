@@ -132,6 +132,7 @@
     <Compile Include="Assets\Scripts\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\Levels\Enemy_trajectory.cs" />
     <Compile Include="Assets\Scripts\Levels\Number.cs" />
+    <Compile Include="Assets\Scripts\MainMenu\ButtonMenu.cs" />
     <Compile Include="Assets\Scripts\MainMenu\Buttons.cs" />
     <Compile Include="Assets\Scripts\MainMenu\Destoy.cs" />
     <Compile Include="Assets\Scripts\MainMenu\GameManager.cs" />
