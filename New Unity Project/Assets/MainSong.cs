@@ -6,7 +6,6 @@ public class MainSong : MonoBehaviour {
     private static MainSong instance;
     public const int MaxVolumeValue = 6;
     private int musicVolume = 0;
-    float volume;
     public int MusicVolume
     {
         get
@@ -24,8 +23,6 @@ public class MainSong : MonoBehaviour {
     }
     public void Slider_Changed(float value)
     {
-        volume = value;
-        print("here");
         SoundFxVolume = (int) value; 
     }
     private int soundFxVolume = 0;

@@ -44,7 +44,6 @@ public class MobileAdsScript : MonoBehaviour
         string android_id = secure.CallStatic<string>("getString", contentResolver, "android_id");
         AdRequest req = new AdRequest.Builder()
                 .AddTestDevice(android_id)
-                //.AddTestDevice(AdRequest.TestDeviceSimulator)
                 .Build();
         return req;
     }
