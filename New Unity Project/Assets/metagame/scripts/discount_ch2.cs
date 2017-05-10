@@ -39,6 +39,7 @@ public class discount_ch2 : MonoBehaviour {
 
     void OnMouseUp()
     {
+		 if (PlayerPrefs.HasKey("start") == true){
         if (i<=4 && s!="true" )
 		{		//v_sum = ob_m - ch_m;		
 				if (v_sum >= 0)
@@ -51,6 +52,6 @@ public class discount_ch2 : MonoBehaviour {
 		//}
 				i++;
 		}
-
+		 }
     }
 }

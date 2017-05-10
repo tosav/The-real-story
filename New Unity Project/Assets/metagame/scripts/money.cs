@@ -27,7 +27,6 @@ public class money : MonoBehaviour {
 
     void FixedUpdate()
     {
-		
 		money1=PlayerPrefs.GetInt("money");
 	    m = Convert.ToString(money1);
         gameObject.GetComponent<Text>().text = m;
