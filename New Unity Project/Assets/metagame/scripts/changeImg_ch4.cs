@@ -87,7 +87,7 @@ public class changeImg_ch4 : MonoBehaviour
 
     void OnMouseUp()
     {
- if (PlayerPrefs.HasKey("start") == true){
+
         if (vr == true && ch<=4 && era<=4 && buy!="false")
         {
             ChangeColor();
@@ -99,7 +99,7 @@ public class changeImg_ch4 : MonoBehaviour
             PlayerPrefs.Save();
         }
         vr = false;
- }
+		
 	}
 
     void ChangeImg()
